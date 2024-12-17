@@ -1,0 +1,8 @@
+D:\Project MAUI\wwwroot\css\bootstrap\bootstrap.min.css.map
+D:\Project MAUI\wwwroot\css\app.css
+D:\Project MAUI\wwwroot\index.html
+D:\Project MAUI\wwwroot\css\bootstrap\bootstrap.min.css
+wwwroot\css\app.css
+wwwroot\css\bootstrap\bootstrap.min.css
+wwwroot\css\bootstrap\bootstrap.min.css.map
+wwwroot\index.html
