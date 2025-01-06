@@ -1,0 +1,310 @@
+﻿@page "/cashout"
+@using Project_MAUI.Components.Model
+@inject UserService UserService
+@inject NavigationManager NavigationManager
+
+<div class="transaction_page">
+    <div class="transaction_box">
+        <h1>Cash Out Transactions</h1>
+
+        <!-- Message Display -->
+        @if (!string.IsNullOrEmpty(Message))
+        {
+            <div class="alert alert-warning">@Message</div>
+        }
+
+        <!-- Add New Transaction Button -->
+        <div class="add-transaction-btn">
+            <button @onclick="NavigateToAllTransactions" class="btn-add-new">Go to All Transactions</button>
+        </div>
+
+        <!-- Filtration Section -->
+        <div class="filtration">
+            <div class="filtration-group">
+                <label>Date Range:</label>
+                <div class="date-inputs">
+                    <InputDate @bind-Value="startDate" class="form-control" />
+                    <InputDate @bind-Value="endDate" class="form-control" />
+                </div>
+            </div>
+
+            <div class="filtration-group">
+                <label>Tags:</label>
+                <InputText @bind-Value="filtrationTag" placeholder="Filtration by tag" class="form-control" />
+            </div>
+
+            <button @onclick="ApplyFiltration" class="btn-filtration">Apply Filtration</button>
+        </div>
+
+        <!-- Transactions Table -->
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Transaction ID</th>
+                        <th>Current Balance</th>
+                        <th>Debit Amount</th>
+                        <th>Date</th>
+                        <th>Type</th>
+                        <th>Tags</th>
+                        <th>Notes</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var transaction in FiltratedDebitTransactions)
+                    {
+                        <tr>
+                            <td>@transaction.Id</td>
+                            <td>@CurrentBalance.ToString("C")</td>
+                            <td>@transaction.Debit.ToString("C")</td>
+                            <td>@transaction.Date.ToString("MM/dd/yyyy")</td>
+                            <td>@transaction.Type</td>
+                            <td>@string.Join(", ", transaction.Tags)</td>
+                            <td>@transaction.Notes</td>
+                            <td>
+                                <button @onclick="() => DeleteTransaction(transaction)" class="btn-delete">Delete</button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Summary Section -->
+        <div class="summary-section">
+            <div class="summary-box">
+                <div class="total-debit">
+                    <h3>Total Cash Out</h3>
+                    <p>@TotalDebit.ToString("C")</p>
+                </div>
+                <div class="current-balance">
+                    <h3>Current Balance</h3>
+                    <p>@CurrentBalance.ToString("C")</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cash Out Form -->
+        <div class="cashout-form">
+            <h3>Cash Out</h3>
+            <InputNumber @bind-Value="newTransaction.Debit" class="form-control" placeholder="Amount to cash out" />
+            <button @onclick="HandleTransactionSubmit" class="btn-add-new">Submit Cashout</button>
+        </div>
+    </div>
+</div>
+
+@code {
+    private int CurrentUserId { get; set; }
+    private Transaction newTransaction = new Transaction { Type = "Debit" };
+    private string Message = "";
+    private AppData Data;
+    private DateTime? startDate;
+    private DateTime? endDate;
+    private string filtrationTag = "";
+
+    private decimal TotalDebit => FiltratedDebitTransactions.Sum(t => t.Debit);
+    private decimal CurrentBalance => Data.Transactions
+        .Where(t => t.UserId == CurrentUserId)
+        .Sum(t => t.Credit - t.Debit);
+
+    protected override void OnInitialized()
+    {
+        Data = UserService.LoadData();
+        CurrentUserId = 1;  // Adjust this with the logic to fetch the current user's ID
+    }
+
+    private IEnumerable<Transaction> FiltratedDebitTransactions
+    {
+        get
+        {
+            var query = Data.Transactions
+                .Where(t => t.UserId == CurrentUserId && t.Type == "Debit");
+
+            if (startDate.HasValue)
+                query = query.Where(t => t.Date >= startDate.Value);
+
+            if (endDate.HasValue)
+                query = query.Where(t => t.Date <= endDate.Value);
+
+            if (!string.IsNullOrEmpty(filtrationTag))
+                query = query.Where(t => t.Tags.Any(tag =>
+                    tag.Contains(filtrationTag, StringComparison.OrdinalIgnoreCase)));
+
+            return query.OrderByDescending(t => t.Date);
+        }
+    }
+
+    private void HandleTransactionSubmit()
+    {
+        decimal currentBalance = CurrentBalance;
+
+        // Check for sufficient balance
+        if (currentBalance <= 0)
+        {
+            Message = "There is no sufficient balance in your account.";
+            return;
+        }
+
+        if (newTransaction.Debit > currentBalance)
+        {
+            Message = "Insufficient balance for this transaction.";
+            return;
+        }
+
+        // Process the cashout (reduce the balance)
+        newTransaction.Id = Data.Transactions.Count + 1;
+        newTransaction.Date = DateTime.Now;
+
+        Data.Transactions.Add(newTransaction);
+        UserService.SaveData(Data);
+
+        // Reset the form and message
+        newTransaction = new Transaction { Type = "Debit" };
+        Message = "Cashout transaction completed successfully.";
+    }
+
+    private void ApplyFiltration()
+    {
+        StateHasChanged();
+    }
+
+    private void DeleteTransaction(Transaction transaction)
+    {
+        // Verify user owns this transaction
+        if (transaction.UserId != CurrentUserId)
+        {
+            return;
+        }
+        Data.Transactions.Remove(transaction);
+        UserService.SaveData(Data);
+        StateHasChanged();
+    }
+
+    private void NavigateToAllTransactions()
+    {
+        NavigationManager.NavigateTo("/alltransactions");
+    }
+}
+
+<style>
+    /* Add these styles to your CSS file */
+
+    .transaction_page {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        background-color: #f4f6f9;
+    }
+
+    .transaction_box {
+        background: #ffffff;
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .page-title {
+        color: #333;
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .filtration {
+        background: #e8f4fa;
+        padding: 15px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+    }
+
+    .filtration-group {
+        margin-bottom: 15px;
+    }
+
+    .date-inputs {
+        display: flex;
+        gap: 10px;
+    }
+
+    .date-input, .tag-input {
+        width: 100%;
+    }
+
+    .btn-filtration {
+        background-color: #007bff;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+        .btn-filtration:hover {
+            background-color: #0056b3;
+        }
+
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    .table-hover tbody tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    .table th, .table td {
+        padding: 10px;
+        text-align: left;
+    }
+
+    .table th {
+        background-color: #007bff;
+        color: white;
+    }
+
+    .table td {
+        background-color: #f9f9f9;
+    }
+
+    .summary-section {
+        margin-top: 30px;
+    }
+
+    .summary-box {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px;
+        background: #e0f7fa;
+        border-radius: 8px;
+    }
+
+    .total-debit, .current-balance {
+        text-align: center;
+    }
+
+    .alert-warning {
+        background-color: #fff3cd;
+        color: #856404;
+        padding: 10px;
+        border-radius: 4px;
+        margin-bottom: 20px;
+    }
+
+    .btn-delete {
+        background-color: #dc3545;
+        color: white;
+        padding: 5px 10px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+        .btn-delete i {
+            margin-right: 5px;
+        }
+
+        .btn-delete:hover {
+            background-color: #c82333;
+        }
+
+</style>

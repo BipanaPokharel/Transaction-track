@@ -1,0 +1,475 @@
+﻿@page "/dashboard"
+@using Project_MAUI.Components.Model
+@inject UserService UserService
+@inject NavigationManager NavigationManager
+
+<div class="dashboard_page">
+    <h1>Welcome to your Dashboard</h1>
+
+    <div class="date_filtration_section">
+        <h3>Filter by Date Range:</h3>
+        <div class="date_filter_group">
+            <label for="startDate">Start Date:</label>
+            <input type="date" id="startDate" @bind="startDate" />
+
+            <label for="endDate">End Date:</label>
+            <input type="date" id="endDate" @bind="endDate" />
+        </div>
+        <button @onclick="ApplyFiltration" class="filter_btn">Apply Filter</button>
+        <button @onclick="RefreshData" class="refresh_btn">Refresh Data</button>
+    </div>
+
+    <div class="debug_section">
+        <h3>Transaction Details</h3>
+        <div>
+            <p>Total Transactions: @FilteredTransactions.Count()</p>
+            <p>Date Range: @startDate?.ToString("MM/dd/yyyy") to @endDate?.ToString("MM/dd/yyyy")</p>
+            <h4>Current Transactions:</h4>
+            <ul>
+                @foreach (var transaction in FilteredTransactions)
+                {
+                    <li>
+                        Date: @transaction.Date.ToString("MM/dd/yyyy") |
+                        Type: @transaction.Type |
+                        Amount: @(transaction.Type == "Credit" ? transaction.Credit.ToString("C") :
+                    transaction.Type == "Debit" ? transaction.Debit.ToString("C") :
+                    transaction.Type == "Debt" ? transaction.Credit.ToString("C") : "0")
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+
+    <div class="statistics_overview">
+        <h2>Statistics Overview</h2>
+
+        <div class="stats_cards">
+            <div class="stat_card">
+                <h3>Cash Flow</h3>
+                <div class="stat_item">
+                    <span class="stat_label">Cash Inflows:</span>
+                    <span class="stat_value">@TotalInflows.ToString("C")</span>
+                </div>
+                <div class="stat_item">
+                    <span class="stat_label">Cash Outflows:</span>
+                    <span class="stat_value">@TotalOutflows.ToString("C")</span>
+                </div>
+                <div class="stat_item">
+                    <span class="stat_label">Net Balance:</span>
+                    <span class="stat_value">@NetBalance.ToString("C")</span>
+                </div>
+            </div>
+
+            <div class="stat_card">
+                <h3>Debt Overview</h3>
+                <div class="stat_item">
+                    <span class="stat_label">Total Debts:</span>
+                    <span class="stat_value">@TotalDebts.ToString("C")</span>
+                </div>
+                <div class="stat_item">
+                    <span class="stat_label">Cleared Debts:</span>
+                    <span class="stat_value">@ClearedDebts.ToString("C")</span>
+                </div>
+                <div class="stat_item">
+                    <span class="stat_label">Remaining Debts:</span>
+                    <span class="stat_value">@RemainingDebts.ToString("C")</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="top_transactions">
+            <div class="transactions_card">
+                <h3>Top 5 Highest Transactions</h3>
+                <ul>
+                    @foreach (var transaction in Top5HighestTransactions)
+                    {
+                        <li class="transaction_item">
+                            <span>@transaction.Type</span>
+                            <span class="@GetTransactionClass(transaction)">
+                                @GetTransactionAmount(transaction)
+                            </span>
+                        </li>
+                    }
+                </ul>
+            </div>
+
+            <div class="transactions_card">
+                <h3>Top 5 Lowest Transactions</h3>
+                <ul>
+                    @foreach (var transaction in Top5LowestTransactions)
+                    {
+                        <li class="transaction_item">
+                            <span>@transaction.Type</span>
+                            <span class="@GetTransactionClass(transaction)">
+                                @GetTransactionAmount(transaction)
+                            </span>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="pending_debts_section">
+        <h2>Pending Debts</h2>
+        <div class="table_container">
+            <table class="debts_table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Source</th>
+                        <th>Amount</th>
+                        <th>Due Date</th>
+                        <th>Remaining Amount</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var debt in FilteredPendingDebts)
+                    {
+                        <tr>
+                            <td>@debt.Id</td>
+                            <td>@debt.Source</td>
+                            <td>@debt.Amount.ToString("C")</td>
+                            <td>@debt.DueDate?.ToString("MM/dd/yyyy")</td>
+                            <td>@debt.RemainingAmount.ToString("C")</td>
+                            <td>@debt.Status</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@code {
+    private AppData Data;
+    private DateTime? startDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+    private DateTime? endDate = DateTime.Now.Date;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await RefreshData();
+    }
+
+    private async Task RefreshData()
+    {
+        try
+        {
+            Data = UserService.LoadData();
+            Console.WriteLine($"Data refreshed. Transaction count: {Data?.Transactions?.Count() ?? 0}");
+            await InvokeAsync(StateHasChanged);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error refreshing data: {ex.Message}");
+        }
+    }
+
+    private IEnumerable<Transaction> FilteredTransactions
+    {
+        get
+        {
+            if (Data?.Transactions == null)
+            {
+                return Enumerable.Empty<Transaction>();
+            }
+
+            var query = Data.Transactions.AsEnumerable();
+
+            if (startDate.HasValue)
+            {
+                query = query.Where(t => t.Date >= startDate.Value);
+            }
+
+            if (endDate.HasValue)
+            {
+                query = query.Where(t => t.Date <= endDate.Value);
+            }
+
+            return query;
+        }
+    }
+
+    private IEnumerable<Debt> FilteredPendingDebts
+    {
+        get
+        {
+            if (Data?.Debts == null)
+            {
+                return Enumerable.Empty<Debt>();
+            }
+
+            var query = Data.Debts.AsEnumerable();
+
+            if (startDate.HasValue)
+            {
+                query = query.Where(d => d.DueDate >= startDate.Value);
+            }
+
+            if (endDate.HasValue)
+            {
+                query = query.Where(d => d.DueDate <= endDate.Value);
+            }
+
+            return query.Where(d => d.Status.Equals("Pending", StringComparison.OrdinalIgnoreCase));
+        }
+    }
+
+    private decimal TotalInflows => FilteredTransactions
+        .Where(t => t.Type.Equals("Credit", StringComparison.OrdinalIgnoreCase))
+        .Sum(t => t.Credit);
+
+    private decimal TotalOutflows => FilteredTransactions
+        .Where(t => t.Type.Equals("Debit", StringComparison.OrdinalIgnoreCase))
+        .Sum(t => t.Debit);
+
+    private decimal TotalDebts => Data?.Debts?.Sum(d => d.Amount) ?? 0;
+
+    private decimal ClearedDebts => Data?.Debts?
+        .Where(d => d.Status.Equals("Paid", StringComparison.OrdinalIgnoreCase))
+        .Sum(d => d.PaidAmount) ?? 0;
+
+    private decimal RemainingDebts => Data?.Debts?
+        .Where(d => d.Status.Equals("Pending", StringComparison.OrdinalIgnoreCase))
+        .Sum(d => d.RemainingAmount) ?? 0;
+
+    private decimal NetBalance => TotalInflows - TotalOutflows;
+
+    private IEnumerable<Transaction> Top5HighestTransactions =>
+        FilteredTransactions
+            .OrderByDescending(t => GetTransactionValue(t))
+            .Take(5);
+
+    private IEnumerable<Transaction> Top5LowestTransactions =>
+        FilteredTransactions
+            .Where(t => GetTransactionValue(t) > 0)
+            .OrderBy(t => GetTransactionValue(t))
+            .Take(5);
+
+    private decimal GetTransactionValue(Transaction t) => t.Type.ToLower() switch
+    {
+        "credit" => t.Credit,
+        "debit" => t.Debit,
+        "debt" => Math.Max(t.Credit, t.Debit),
+        _ => 0
+    };
+
+    private string GetTransactionClass(Transaction t) => t.Type.ToLower() switch
+    {
+        "credit" => "credit_class",
+        "debit" => "debit_class",
+        "debt" => "debt_class",
+        _ => ""
+    };
+
+    private string GetTransactionAmount(Transaction t) => t.Type.ToLower() switch
+    {
+        "credit" => t.Credit.ToString("C"),
+        "debit" => t.Debit.ToString("C"),
+        "debt" => t.Credit.ToString("C"),
+        _ => "0"
+    };
+
+
+
+
+    private void ApplyFiltration()
+    {
+        // Trigger state update after filter changes.
+        StateHasChanged();
+    }
+}
+
+
+<style>
+    .dashboard_page {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        background-color: #f5f5f5;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    h1 {
+        color: #F87171;
+        font-size: 2rem;
+        margin-bottom: 10px;
+    }
+
+    .date_filtration_section {
+        margin-top: 20px;
+        padding: 10px;
+        background-color: #fff;
+        border-radius: 8px;
+    }
+
+        .date_filtration_section h3 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+    .date_filter_group {
+        margin-bottom: 10px;
+    }
+
+        .date_filter_group label {
+            font-size: 1rem;
+            margin-right: 10px;
+        }
+
+        .date_filter_group input {
+            padding: 5px;
+            margin-right: 15px;
+            font-size: 1rem;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+    .filter_btn, .refresh_btn {
+        background-color: #F87171;
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        font-size: 1rem;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-right: 10px;
+    }
+
+        .filter_btn:hover, .refresh_btn:hover {
+            background-color: #f05a5a;
+        }
+
+    .refresh_btn {
+        background-color: #60A5FA;
+    }
+
+        .refresh_btn:hover {
+            background-color: #3B82F6;
+        }
+
+    .debug_section {
+        margin: 20px 0;
+        padding: 15px;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+    }
+
+        .debug_section h3 {
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .debug_section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .debug_section li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+    .statistics_overview {
+        margin-top: 30px;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+    }
+
+    .stats_cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        margin-top: 20px;
+    }
+
+    .stat_card {
+        background-color: #f8f9fa;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    .stat_item {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 0;
+        border-bottom: 1px solid #eee;
+    }
+
+        .stat_item:last-child {
+            border-bottom: none;
+        }
+
+    .stat_label {
+        color: #666;
+    }
+
+    .stat_value {
+        font-weight: bold;
+        color: #333;
+    }
+
+    .top_transactions {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        margin-top: 20px;
+    }
+
+    .transactions_card {
+        background-color: #f8f9fa;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    .transaction_item {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 0;
+        border-bottom: 1px solid #eee;
+    }
+
+        .transaction_item:last-child {
+            border-bottom: none;
+        }
+
+    .credit {
+        color: #10B981;
+    }
+
+    .debit {
+        color: #EF4444;
+    }
+
+    .pending_debts_section {
+        margin-top: 30px;
+        background-color: #fff;
+        padding: 15px;
+        border-radius: 8px;
+    }
+
+    .table_container {
+        overflow-x: auto;
+        margin-top: 15px;
+    }
+
+    .debts_table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+        .debts_table th, .debts_table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .debts_table th {
+            background-color: #f1f1f1;
+        }
+</style>

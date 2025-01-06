@@ -1,0 +1,21 @@
+C:\Users\bpnap\OneDrive\Desktop\22085400 Bipana Pokharel\code\code\Project MAUI\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\Project MAUI.csproj.AssemblyReference.cache
+C:\Users\bpnap\OneDrive\Desktop\22085400 Bipana Pokharel\code\code\Project MAUI\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\scopedcss\bundle\Project MAUI.styles.css
+C:\Users\bpnap\OneDrive\Desktop\22085400 Bipana Pokharel\code\code\Project MAUI\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\staticwebassets.build.json
+C:\Users\bpnap\OneDrive\Desktop\22085400 Bipana Pokharel\code\code\Project MAUI\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\staticwebassets.development.json
+C:\Users\bpnap\OneDrive\Desktop\22085400 Bipana Pokharel\code\code\Project MAUI\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\staticwebassets.build.endpoints.json
+C:\Users\bpnap\OneDrive\Desktop\22085400 Bipana Pokharel\code\code\Project MAUI\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\staticwebassets\msbuild.Project MAUI.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\bpnap\OneDrive\Desktop\22085400 Bipana Pokharel\code\code\Project MAUI\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\staticwebassets\msbuild.Project MAUI.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+C:\Users\bpnap\OneDrive\Desktop\22085400 Bipana Pokharel\code\code\Project MAUI\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\staticwebassets\msbuild.build.Project MAUI.props
+C:\Users\bpnap\OneDrive\Desktop\22085400 Bipana Pokharel\code\code\Project MAUI\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\staticwebassets\msbuild.buildMultiTargeting.Project MAUI.props
+C:\Users\bpnap\OneDrive\Desktop\22085400 Bipana Pokharel\code\code\Project MAUI\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\staticwebassets\msbuild.buildTransitive.Project MAUI.props
+C:\Users\bpnap\OneDrive\Desktop\22085400 Bipana Pokharel\code\code\Project MAUI\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\staticwebassets.pack.json
+C:\Users\bpnap\OneDrive\Desktop\22085400 Bipana Pokharel\code\code\Project MAUI\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\staticwebassets.upToDateCheck.txt
+C:\Users\bpnap\OneDrive\Desktop\22085400 Bipana Pokharel\code\code\Project MAUI\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\staticwebassets.publish.json
+C:\Users\bpnap\OneDrive\Desktop\22085400 Bipana Pokharel\code\code\Project MAUI\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\staticwebassets.publish.endpoints.json
+C:\Users\bpnap\OneDrive\Desktop\22085400 Bipana Pokharel\code\code\Project MAUI\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\scopedcss\Components\Layout\MainLayout.razor.rz.scp.css
+C:\Users\bpnap\OneDrive\Desktop\22085400 Bipana Pokharel\code\code\Project MAUI\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\scopedcss\Components\Layout\NavMenu.razor.rz.scp.css
+C:\Users\bpnap\OneDrive\Desktop\22085400 Bipana Pokharel\code\code\Project MAUI\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\scopedcss\projectbundle\Project MAUI.bundle.scp.css
+C:\Users\bpnap\OneDrive\Desktop\22085400 Bipana Pokharel\code\code\Project MAUI\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\compressed\mafyosdqbr-mbja1ayt3n.gz
+C:\Users\bpnap\OneDrive\Desktop\22085400 Bipana Pokharel\code\code\Project MAUI\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\compressed\b9nxz86vbo-mbja1ayt3n.gz
+C:\Users\bpnap\OneDrive\Desktop\22085400 Bipana Pokharel\code\code\Project MAUI\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\compressed\publish\mafyosdqbr-mbja1ayt3n.br
+C:\Users\bpnap\OneDrive\Desktop\22085400 Bipana Pokharel\code\code\Project MAUI\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\compressed\publish\b9nxz86vbo-mbja1ayt3n.br

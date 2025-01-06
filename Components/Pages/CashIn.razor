@@ -1,0 +1,258 @@
+﻿@page "/cashin"
+@using Project_MAUI.Components.Model
+@inject UserService UserService
+@inject NavigationManager NavigationManager
+
+<div class="cashin_page">
+    <div class="cashin_box">
+        <h1 class="page-title">Transactions</h1>
+        <div class="filters">
+            <div class="filter-group">
+                <label>Date Range:</label>
+                <div class="date-range">
+                    <input type="date" @bind="startDate" class="filter-input" />
+                    <span class="date-separator">to</span>
+                    <input type="date" @bind="endDate" class="filter-input" />
+                </div>
+            </div>
+            <div class="filter-group">
+                <label>Transaction Type:</label>
+                <select @bind="selectedType" class="filter-select">
+                    <option value="">All</option>
+                    <option value="Credit">Credit</option>
+                    <option value="Debit">Debit</option>
+                    <option value="Debt">Debt</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>Tag:</label>
+                <input type="text" @bind="filterTag" placeholder="Filter by tag" class="filter-input" />
+            </div>
+            <button @onclick="ApplyFilters" class="btn btn-primary btn-apply">Apply Filters</button>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Current Balance</th>
+                        <th>Transaction Type</th>
+                        <th>Amount</th>
+                        <th>Date</th>
+                        <th>Tags</th>
+                        <th>Debt Source</th>
+                        <th>Due Date</th>
+                        <th>Notes</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var transaction in FilteredTransactions)
+                    {
+                        var isPendingDebt = Data.Debts.Any(d => d.UserId == CurrentUserId && d.Status == "Pending" && d.Amount == transaction.Debit);
+                        <tr class="@(isPendingDebt ? "highlight-pending" : "")">
+                            <td>@transaction.Id</td>
+                            <td>@CalculateBalance(transaction)</td>
+                            <td>@transaction.Type</td>
+                            <td>@(transaction.Type == "Credit" ? transaction.Credit : transaction.Debit)</td>
+                            <td>@transaction.Date.ToString("MM/dd/yyyy")</td>
+                            <td>@string.Join(", ", transaction.Tags)</td>
+                            <td>@(isPendingDebt ? Data.Debts.First(d => d.UserId == CurrentUserId && d.Amount == transaction.Debit).Source : "-")</td>
+                            <td>@(isPendingDebt ? Data.Debts.First(d => d.UserId == CurrentUserId && d.Amount == transaction.Debit).DueDate?.ToString("MM/dd/yyyy") : "-")</td>
+                            <td>@transaction.Notes</td>
+                            <td><button @onclick="() => DeleteTransaction(transaction)" class="btn btn-danger">Delete</button></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <button @onclick="AddNewTransaction" class="btn btn-success">Add New Transaction</button>
+    </div>
+</div>
+
+@code {
+    [CascadingParameter] private int CurrentUserId { get; set; }
+    private AppData Data;
+    private DateTime? startDate;
+    private DateTime? endDate;
+    private string selectedType = "";
+    private string filterTag = "";
+
+    protected override void OnInitialized()
+    {
+        Data = UserService.LoadData();
+    }
+
+    private IEnumerable<Transaction> FilteredTransactions
+    {
+        get
+        {
+            var query = Data.Transactions.Where(t => t.UserId == CurrentUserId).AsEnumerable();
+            if (startDate.HasValue) query = query.Where(t => t.Date >= startDate.Value);
+            if (endDate.HasValue) query = query.Where(t => t.Date <= endDate.Value);
+            if (!string.IsNullOrEmpty(selectedType)) query = query.Where(t => t.Type == selectedType);
+            if (!string.IsNullOrEmpty(filterTag)) query = query.Where(t => t.Tags.Any(tag => tag.Contains(filterTag, StringComparison.OrdinalIgnoreCase)));
+            return query.OrderByDescending(t => t.Date);
+        }
+    }
+
+    private decimal CalculateBalance(Transaction transaction)
+    {
+        var previousTransactions = Data.Transactions.Where(t => t.UserId == CurrentUserId && t.Id <= transaction.Id).ToList();
+        decimal balance = previousTransactions.Sum(t => t.Credit - t.Debit);
+
+        if (transaction.Type == "Credit")
+        {
+            var pendingDebts = Data.Debts.Where(d => d.UserId == CurrentUserId && d.Status == "Pending").OrderBy(d => d.DueDate).ToList();
+            foreach (var debt in pendingDebts)
+            {
+                if (transaction.Credit > 0)
+                {
+                    decimal amountToPay = Math.Min(debt.Amount - debt.PaidAmount, transaction.Credit);
+                    debt.PaidAmount += amountToPay;
+                    transaction.Credit -= amountToPay;
+
+                    if (debt.PaidAmount >= debt.Amount)
+                    {
+                        debt.Status = "Paid";
+                    }
+                    UserService.SaveData(Data);
+                }
+            }
+        }
+        return balance;
+    }
+
+    private void ApplyFilters() => StateHasChanged();
+
+    private void AddNewTransaction() => NavigationManager.NavigateTo("/alltransactions");
+
+    private void DeleteTransaction(Transaction transaction)
+    {
+        if (transaction.UserId != CurrentUserId) return;
+        Data.Transactions.Remove(transaction);
+        UserService.SaveData(Data);
+        StateHasChanged();
+    }
+}
+
+<style>
+    .cashin_page {
+        margin: 20px;
+    }
+
+    .cashin_box {
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        background-color: #fff;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .page-title {
+        font-size: 24px;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .filters {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .filter-group {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .date-range {
+        display: flex;
+        align-items: center;
+    }
+
+    .date-separator {
+        margin: 0 10px; /* Space between date inputs */
+    }
+
+    .filter-input,
+    .filter-select {
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+
+    .btn {
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        color: #fff;
+    }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+    .btn-success {
+        background-color: #28a745;
+        color: #fff;
+    }
+
+        .btn-success:hover {
+            background-color: #218838;
+        }
+
+    .btn-danger {
+        background-color: #dc3545;
+        color: #fff;
+    }
+
+        .btn-danger:hover {
+            background-color: #c82333;
+        }
+
+    .btn-apply {
+        width: auto; /* Adjust width as needed */
+        font-size: 16px; /* Increase font size */
+        padding: 12px 20px; /* Increase padding for a larger button */
+    }
+
+    .table-responsive {
+        margin-top: 20px;
+    }
+
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+        .table th,
+        .table td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .table th {
+            background-color: #f8f9fa;
+            font-weight: bold;
+        }
+
+        .table tbody tr:hover {
+            background-color: #f1f1f1;
+        }
+
+    .highlight-pending {
+        background-color: #f8d7da;
+        color: #721c24;
+    }
+</style>
+

@@ -1,0 +1,148 @@
+﻿@page "/"
+@inject UserService UserService
+@inject NavigationManager NavigationManager
+@using Project_MAUI.Components.Layout
+@using Project_MAUI.Components.Model
+@layout FirstLayout
+
+<style></style>
+
+<h3>TransactionTracker</h3>
+
+<div class="login_page">
+    <div class="login_box">
+        <input @bind="LoginUsername" placeholder="Username" />
+        <input @bind="LoginPassword" placeholder="Password" type="password" />
+        <button @onclick="LoginPage">Login</button>
+        <a href="/register">Register</a>
+
+
+        @if (!string.IsNullOrEmpty(Message))
+        {
+            <p>@Message</p>
+        }
+    </div>
+</div>
+
+@code {
+    private string LoginUsername = "";
+    private string LoginPassword = "";
+    private string Message = "";
+    private AppData data;
+
+    // private List<User> Users = new();
+
+    protected override void OnInitialized()
+    {
+        // Create an instance of UserService
+        var userService = new UserService();
+
+        // Load the entire AppData object
+        data = userService.LoadData();
+
+        // Now, the Users list can be accessed via data.Users
+        var users = data.Users;
+    }
+    private void LoginPage()
+    {
+        var user = data.Users.FirstOrDefault(u => u.Username == LoginUsername);
+
+        if (user != null && UserService.ValidatePassword(LoginPassword, user.Password))
+        {
+            // Redirect to dashboard if login is successful
+            NavigationManager.NavigateTo("/dashboard");
+        }
+        else
+        {
+            Message = "Invalid username or password.";
+        }
+    }
+}
+<style>
+    .login_page {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        padding: 20px;
+        background-color: #fff;
+    }
+
+    h3 {
+        color: #94C38A;
+        font-size: 2rem;
+        margin-bottom: 2rem;
+        font-weight: bold;
+    }
+
+    .login_box {
+        background-color: white;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(248, 113, 113, 0.1);
+        width: 100%;
+        max-width: 400px;
+    }
+
+    input {
+        width: 100%;
+        padding: 12px;
+        margin: 8px 0;
+        border: 2px solid #f0f0f0;
+        border-radius: 4px;
+        font-size: 1rem;
+        transition: border-color 0.3s ease;
+    }
+
+        input:focus {
+            outline: none;
+            border-color: #94C38A;
+        }
+
+    button {
+        width: 100%;
+        padding: 12px;
+        background-color: #94C38A;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        margin: 16px 0;
+    }
+
+        button:hover {
+            background-color: #ef4444;
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+
+    a {
+        color: #94C38A;
+        text-decoration: none;
+        font-size: 0.9rem;
+        display: block;
+        text-align: center;
+        margin-top: 1rem;
+        transition: color 0.3s ease;
+    }
+
+        a:hover {
+            color: #ef4444;
+            text-decoration: underline;
+        }
+
+    p {
+        color: #94C38A;
+        text-align: center;
+        margin-top: 1rem;
+        font-size: 0.9rem;
+    }
+</style>
+
+
+

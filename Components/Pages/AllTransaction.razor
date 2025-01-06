@@ -1,0 +1,304 @@
+﻿@page "/alltransactions"
+@using Project_MAUI.Components.Model
+@inject UserService UserService
+@inject NavigationManager NavigationManager
+
+<div class="transaction_page">
+    <div class="transaction_box">
+        <h2>Add New Transaction</h2>
+
+        <!-- Success Message (conditionally shown) -->
+        @if (isSuccess)
+        {
+            <div class="success-message">
+                Transaction saved successfully!
+            </div>
+        }
+
+        <EditForm Model="newTransaction" OnValidSubmit="HandleTransactionSubmit">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
+
+            <div class="form-group">
+                <label for="transactionType">Transaction Type</label>
+                <InputSelect id="transactionType" @bind-Value="newTransaction.Type" class="form-control">
+                    <option value="">Select Type</option>
+                    <option value="Credit">Credit</option>
+                    <option value="Debit">Debit</option>
+                    <option value="Debt">Debt</option>
+                    <option value="Cleared Debt">Cleared Debt</option>
+                </InputSelect>
+            </div>
+
+            <div class="form-group">
+                <label for="amount">Amount</label>
+                <InputNumber id="amount" @bind-Value="newTransaction.Amount" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label for="date">Date</label>
+                <InputDate id="date" @bind-Value="newTransaction.Date" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label for="tags">Tags (comma-separated)</label>
+                <InputText id="tags" @bind-Value="tagInput" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label for="notes">Notes</label>
+                <InputTextArea id="notes" @bind-Value="newTransaction.Notes" class="form-control" />
+            </div>
+
+            <div class="button-group">
+                <button type="submit" class="btn-save">Save Transaction</button>
+                <button type="button" class="btn-cancel" @onclick="Cancel">Cancel</button>
+            </div>
+        </EditForm>
+    </div>
+
+    <!-- Sorting Buttons -->
+    <div class="sorting-options">
+        <button @onclick="SortTransactionsAscending" class="btn-sort">Sort by Date (Ascending)</button>
+        <button @onclick="SortTransactionsDescending" class="btn-sort">Sort by Date (Descending)</button>
+    </div>
+
+    <!-- Transactions List -->
+    <div class="transactions-list">
+        <h3>Transaction List</h3>
+        <ul>
+            @foreach (var transaction in sortedTransactions)
+            {
+                <li>
+                    <span>@transaction.Date.ToString("MM/dd/yyyy")</span>
+                    <span>@transaction.Type</span>
+                    <span>@transaction.Amount</span>
+                </li>
+            }
+        </ul>
+
+        <!-- Total Summary -->
+        <div class="transaction-summary">
+            <p><strong>Total Transactions:</strong> @sortedTransactions.Count</p>
+            <p><strong>Total Inflows:</strong> @sortedTransactions.Where(t => t.Type == "Credit").Sum(t => t.Amount)</p>
+            <p><strong>Total Outflows:</strong> @sortedTransactions.Where(t => t.Type == "Debit").Sum(t => t.Amount)</p>
+            <p><strong>Total Debt:</strong> @sortedTransactions.Where(t => t.Type == "Debt").Sum(t => t.Amount)</p>
+            <p><strong>Cleared Debt:</strong> @sortedTransactions.Where(t => t.Type == "Cleared Debt").Sum(t => t.Amount)</p>
+            <p><strong>Remaining Debt:</strong> @(sortedTransactions.Where(t => t.Type == "Debt").Sum(t => t.Amount) - sortedTransactions.Where(t => t.Type == "Cleared Debt").Sum(t => t.Amount))</p>
+        </div>
+    </div>
+</div>
+
+@code {
+    [CascadingParameter]
+    private int CurrentUserId { get; set; }  // Get the current user's ID
+
+    private Transaction newTransaction = new Transaction();
+    private string tagInput = "";
+    private AppData Data;
+    private bool isSuccess = false;  // Flag to show success message
+    private List<Transaction> sortedTransactions = new List<Transaction>();
+
+    protected override void OnInitialized()
+    {
+        Data = UserService.LoadData();
+        newTransaction.Date = DateTime.Now;
+        newTransaction.UserId = CurrentUserId;
+
+        // Initialize with ascending order by default
+        sortedTransactions = Data.Transactions.OrderBy(t => t.Date).ToList();
+    }
+
+    private async void HandleTransactionSubmit()
+    {
+        if (newTransaction.Amount <= 0)
+        {
+            return;  // No further action if validation fails
+        }
+
+        newTransaction.Id = Data.Transactions.Count + 1;
+        newTransaction.Tags = tagInput.Split(',').Select(t => t.Trim()).ToList();
+
+        if (newTransaction.Type == "Credit")
+        {
+            newTransaction.Credit = newTransaction.Amount;
+            newTransaction.Debit = 0;
+        }
+        else if (newTransaction.Type == "Debit" || newTransaction.Type == "Debt")
+        {
+            newTransaction.Debit = newTransaction.Amount;
+            newTransaction.Credit = 0;
+        }
+        else if (newTransaction.Type == "Cleared Debt")
+        {
+            newTransaction.Debit = 0;
+            newTransaction.Credit = 0;
+        }
+
+        Data.Transactions.Add(newTransaction);
+        UserService.SaveData(Data);
+
+        isSuccess = true;
+        await Task.Delay(3000);
+        NavigationManager.NavigateTo("/alltransactions");
+        isSuccess = false;
+        StateHasChanged();
+    }
+
+    private void Cancel()
+    {
+        NavigationManager.NavigateTo("/alltransactions");
+    }
+
+    private void SortTransactionsAscending()
+    {
+        sortedTransactions = Data.Transactions.OrderBy(t => t.Date).ToList();
+        StateHasChanged();
+    }
+
+    private void SortTransactionsDescending()
+    {
+        sortedTransactions = Data.Transactions.OrderByDescending(t => t.Date).ToList();
+        StateHasChanged();
+    }
+}
+
+<style>
+    .transaction_page {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #f4f7f9;
+    }
+
+    .transaction_box {
+        background-color: white;
+        padding: 25px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 500px;
+        margin-bottom: 20px;
+    }
+
+    .transaction_title {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+        text-align: center;
+        color: #333;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-label {
+        font-weight: bold;
+        color: #555;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 10px;
+        margin-top: 8px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+        .form-control:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+    .button-group {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+    }
+
+    .btn-save, .btn-cancel {
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1rem;
+        cursor: pointer;
+        border: none;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn-save {
+        background-color: #28a745;
+        color: white;
+    }
+
+        .btn-save:hover {
+            background-color: #218838;
+        }
+
+    .btn-cancel {
+        background-color: #dc3545;
+        color: white;
+    }
+
+        .btn-cancel:hover {
+            background-color: #c82333;
+        }
+
+    .success-message {
+        background-color: #28a745;
+        color: white;
+        padding: 10px;
+        margin-bottom: 15px;
+        border-radius: 5px;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .sorting-options {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+
+    .btn-sort {
+        padding: 10px 20px;
+        font-size: 1rem;
+        background-color: #007bff;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+        border: none;
+        transition: background-color 0.3s ease;
+        margin: 0 5px;
+    }
+
+        .btn-sort:hover {
+            background-color: #0056b3;
+        }
+
+    .transactions-list {
+        width: 100%;
+        max-width: 600px;
+    }
+
+        .transactions-list ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .transactions-list li {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+    .transaction-summary {
+        margin-top: 20px;
+        background-color: #fff;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+</style>

@@ -1,6 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Components",
+    "\\Components\\Layout",
+    "\\Components\\Pages"
   ],
+  "SelectedNode": "\\Project MAUI.sln",
   "PreviewInSolutionExplorer": false
 }
