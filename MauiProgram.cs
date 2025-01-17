@@ -14,6 +14,7 @@ namespace Project_MAUI
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                 });
 
+            builder.Services.AddSingleton<UserService>();
             builder.Services.AddMauiBlazorWebView();
 
 #if DEBUG

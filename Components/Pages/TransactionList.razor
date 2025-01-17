@@ -1,0 +1,206 @@
+﻿@page "/transactionlist"
+@inject IJSRuntime JSRuntime
+@using Project_MAUI.Components.Model
+@inject UserService UserService
+@inject NavigationManager NavigationManager
+
+<div class="transaction_list_page">
+    <h1 class="page-title">Transaction List</h1>
+
+    <div class="content-container">
+        <div class="sorting-controls">
+            <button @onclick="SortTransactionsAscending" class="sort-button">Sort by Date (Ascending)</button>
+            <button @onclick="SortTransactionsDescending" class="sort-button">Sort by Date (Descending)</button>
+        </div>
+
+        <button @onclick="@(() => showTransactions = !showTransactions)" class="toggle-button">
+            @(showTransactions ? "Hide Transactions" : "Show Transactions")
+        </button>
+
+        @if (showTransactions)
+        {
+            <div class="transaction-info">
+                <h3 class="transaction-list-title">Transaction List</h3>
+                <ul class="transaction-list">
+                    @foreach (var transaction in sortedTransactions)
+                    {
+                        <li class="transaction-item">
+                            <span class="transaction-date">@transaction.Date.ToString("MM/dd/yyyy")</span>
+                            <span class="transaction-type">@transaction.Type</span>
+                            <span class="transaction-amount">
+                                @(transaction.Type == "Credit" ? transaction.Credit : transaction.Type == "Debit" ? transaction.Debit : transaction.Amount)
+                                @transaction.Currency
+                            </span>
+                        </li>
+                    }
+                </ul>
+
+                <div class="summary">
+                    <p><strong>Total Transactions:</strong> @sortedTransactions.Count</p>
+                    <p><strong>Total Inflows:</strong> @sortedTransactions.Where(t => t.Type == "Credit").Sum(t => t.Amount)</p>
+                    <p><strong>Total Outflows:</strong> @sortedTransactions.Where(t => t.Type == "Debit").Sum(t => t.Amount)</p>
+                    <p><strong>Total Debt:</strong> @sortedTransactions.Where(t => t.Type == "Debt").Sum(t => t.Amount)</p>
+                    <p><strong>Cleared Debt:</strong> @sortedTransactions.Where(t => t.Type == "Cleared Debt").Sum(t => t.Amount)</p>
+                    <p><strong>Remaining Debt:</strong> @(sortedTransactions.Where(t => t.Type == "Debt").Sum(t => t.Amount) - sortedTransactions.Where(t => t.Type == "Cleared Debt").Sum(t => t.Amount))</p>
+                </div>
+
+                <button class="export-button" @onclick="ExportToExcel">Export to Excel</button>
+            </div>
+        }
+    </div>
+</div>
+
+@code {
+    private AppData Data;
+    private List<Transaction> sortedTransactions = new List<Transaction>();
+    private bool showTransactions = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await RefreshData();
+        sortedTransactions = Data.Transactions.OrderBy(t => t.Date).ToList();
+    }
+
+    private void SortTransactionsAscending() =>
+        sortedTransactions = Data.Transactions.OrderBy(t => t.Date).ToList();
+
+    private void SortTransactionsDescending() =>
+        sortedTransactions = Data.Transactions.OrderByDescending(t => t.Date).ToList();
+
+    private async Task ExportToExcel()
+    {
+        var transactionData = Data.Transactions.Select(t => new
+        {
+            t.Id,
+            t.Title,
+            Amount = t.Type == "Credit" ? t.Credit : t.Type == "Debit" ? t.Debit : t.Amount,
+            t.Date,
+            t.Notes,
+            t.Tags,
+            t.Type
+        }).ToList();
+
+        var sheet = new
+        {
+            fields = new[] { "ID", "Title", "Amount", "Date", "Notes", "Tags", "Type" },
+            data = transactionData
+        };
+
+        await JSRuntime.InvokeVoidAsync("exportTableToExcel", sheet);
+    }
+
+    private async Task RefreshData()
+    {
+        try
+        {
+            Data = UserService.LoadData();
+            Console.WriteLine($"Data refreshed. Transaction count: {Data?.Transactions?.Count() ?? 0}");
+            await InvokeAsync(StateHasChanged);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error refreshing data: {ex.Message}");
+        }
+    }
+}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.1/xlsx.full.min.js"></script>
+<script>
+    function exportTableToExcel(sheet) {
+        const ws = XLSX.utils.json_to_sheet(sheet.data);
+        const wb = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, "Transactions");
+        XLSX.writeFile(wb, "transactions.xlsx");
+    }
+</script>
+
+<style>
+    .transaction_list_page {
+        font-family: 'Arial', sans-serif;
+        background-color: #f7f8fa;
+        padding: 30px;
+        border-radius: 8px;
+        max-width: 900px;
+        margin: 0 auto;
+    }
+
+    .page-title {
+        text-align: center;
+        color: #333;
+        font-size: 2rem;
+        margin-bottom: 30px;
+    }
+
+    .content-container {
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .sorting-controls {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+
+    .sort-button, .toggle-button, .export-button {
+        background: #007bff;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+
+        .sort-button:hover, .toggle-button:hover, .export-button:hover {
+            background-color: #0056b3;
+        }
+
+    .transaction-info {
+        margin-top: 30px;
+    }
+
+    .transaction-list-title {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+
+    .transaction-list {
+        list-style: none;
+        padding: 0;
+    }
+
+    .transaction-item {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+        font-size: 1rem;
+        color: #555;
+    }
+
+        .transaction-item .transaction-date {
+            font-weight: bold;
+        }
+
+        .transaction-item .transaction-amount {
+            color: #007bff;
+        }
+
+    .summary {
+        margin-top: 20px;
+        font-size: 1rem;
+        color: #555;
+    }
+
+    .export-button {
+        background: #28a745;
+        margin-top: 20px;
+    }
+
+        .export-button:hover {
+            background-color: #218838;
+        }
+</style>

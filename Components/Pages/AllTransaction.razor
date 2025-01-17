@@ -1,0 +1,227 @@
+﻿@page "/transactionform"
+@using Project_MAUI.Components.Model
+@inject UserService UserService
+@inject NavigationManager NavigationManager
+
+<div style="padding: 20px;">
+    <div style="background: #f9f9f9; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+        <h2>Add New Transaction</h2>
+
+        @if (isSuccess)
+        {
+            <div style="background: #d4edda; color: #155724; padding: 10px; margin-bottom: 15px; border-radius: 5px;">
+                Transaction saved successfully!
+            </div>
+        }
+
+        <EditForm Model="newTransaction" OnValidSubmit="HandleTransactionSubmit">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
+
+            <div style="margin-bottom: 15px;">
+                <label for="transactionType">Transaction Type</label>
+                <InputSelect id="transactionType" @bind-Value="newTransaction.Type" style="width: 100%; padding: 8px; margin-top: 5px;">
+                    <option value="">Select Type</option>
+                    <option value="Credit">Credit</option>
+                    <option value="Debit">Debit</option>
+                    <option value="Debt">Debt</option>
+                    <option value="Cleared Debt">Cleared Debt</option>
+                </InputSelect>
+            </div>
+
+            <div style="margin-bottom: 15px;">
+                <label for="amount">Amount</label>
+                <InputNumber id="amount" @bind-Value="newTransaction.Amount" style="width: 100%; padding: 8px; margin-top: 5px;" />
+            </div>
+
+            <div style="margin-bottom: 15px;">
+                <label for="date">Date</label>
+                <InputDate id="date" @bind-Value="newTransaction.Date" style="width: 100%; padding: 8px; margin-top: 5px;" />
+            </div>
+
+            <div style="margin-bottom: 15px;">
+                <label for="currency">Currency</label>
+                <InputSelect id="currency" @bind-Value="newTransaction.Currency" style="width: 100%; padding: 8px; margin-top: 5px;">
+                    <option value="">Select Currency</option>
+                    @foreach (var currency in Currencies)
+                    {
+                        <option value="@currency.Code">@currency.Name (@currency.Code)</option>
+                    }
+                </InputSelect>
+            </div>
+
+            <div style="margin-bottom: 15px;">
+                <label for="tags">Tags (comma-separated)</label>
+                <InputText id="tags" @bind-Value="tagInput" style="width: 100%; padding: 8px; margin-top: 5px;" />
+            </div>
+
+            <div style="margin-bottom: 15px;">
+                <label for="notes">Notes</label>
+                <InputTextArea id="notes" @bind-Value="newTransaction.Notes" style="width: 100%; padding: 8px; margin-top: 5px;" />
+            </div>
+
+            <div>
+                <button type="submit" style="background: #28a745; color: white; padding: 10px 15px; border: none; margin-right: 10px;">Save Transaction</button>
+                <button type="button" style="background: #dc3545; color: white; padding: 10px 15px; border: none;" @onclick="Cancel">Cancel</button>
+            </div>
+        </EditForm>
+    </div>
+</div>
+
+@code {
+    private Transaction newTransaction = new Transaction();
+    private string tagInput = "";
+    private AppData Data;
+    private bool isSuccess = false;
+    private List<Currency> Currencies = new();
+
+    protected override void OnInitialized()
+    {
+        Data = UserService.LoadData();
+        newTransaction.Date = DateTime.Now;
+        Currencies = GetCommonCurrencies();
+    }
+
+    private List<Currency> GetCommonCurrencies()
+    {
+        return new List<Currency>
+        {
+            new Currency { Code = "USD", Name = "US Dollar", Symbol = "$", Rate = 1.0m },
+            new Currency { Code = "EUR", Name = "Euro", Symbol = "€", Rate = 0.92m },
+            new Currency { Code = "GBP", Name = "British Pound", Symbol = "£", Rate = 0.79m },
+            new Currency { Code = "JPY", Name = "Japanese Yen", Symbol = "¥", Rate = 150.14m },
+            new Currency { Code = "AUD", Name = "Australian Dollar", Symbol = "A$", Rate = 1.53m },
+            new Currency { Code = "CAD", Name = "Canadian Dollar", Symbol = "C$", Rate = 1.35m }
+        };
+    }
+
+    private async Task HandleTransactionSubmit()
+    {
+        newTransaction.Id = Data.Transactions.Count + 1;
+        newTransaction.Tags = tagInput.Split(',').ToList();
+        Data.Transactions.Add(newTransaction);
+        UserService.SaveData(Data);
+        isSuccess = true;
+        await Task.Delay(3000);
+        isSuccess = false;
+    }
+
+    private void Cancel() => NavigationManager.NavigateTo("/alltransactions");
+}
+
+<style>
+    /* General Styles */
+    body {
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(to right, #4facfe, #00f2fe);
+        color: #333;
+    }
+
+    /* Transaction Box */
+    .transaction_page {
+        padding: 20px;
+    }
+
+    .transaction_box {
+        background: #ffffff;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        width: 100%;
+        max-width: 600px;
+        margin-bottom: 30px;
+        transition: transform .3s ease;
+    }
+
+        .transaction_box:hover {
+            transform: translateY(-5px);
+        }
+
+    /* Buttons */
+    button {
+        padding: 10px 15px;
+        border-radius: 8px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: all .3s ease;
+    }
+
+        button:hover {
+            transform: scale(1.05);
+        }
+
+        button[type="submit"] {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+            &:hover
+
+    {
+        background-color: #218838
+    }
+
+    &:focus {
+        outline: none
+    }
+
+    &:active {
+        transform(scale(0.98))
+    }
+
+    &:disabled {
+        opacity: .65
+    }
+
+        &:disabled:hover {
+            cursor: not-allowed
+        }
+
+        &:disabled:hover,
+        &:disabled {
+            background-color: #28a745
+        }
+
+    }
+
+    /* Cancel Button */
+    button[type='button'] {
+        background-color: #dc3545;
+        color: white;
+        &:hover
+
+    {
+        background-color: #c82333
+    }
+
+    &:focus {
+        outline: none
+    }
+
+    &:active {
+        transform(scale(0.98))
+    }
+
+    &:disabled {
+        opacity: .65
+    }
+
+        &:disabled:hover,
+        &:disabled {
+            background-color: #dc3545
+        }
+
+    }
+
+    /* Success Message */
+    .success-message {
+        background-color: #d4edda;
+        color: #155724;
+        padding: .75rem;
+        border-radius: .25rem;
+        margin-bottom: .75rem
+    }
+</style>
+

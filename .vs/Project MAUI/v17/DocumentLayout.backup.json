@@ -1,10 +1,46 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\Project MAUI\\",
+  "WorkspaceRootPath": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{EB907AF9-07D3-46E1-9CC2-23B20D0372E9}|Project MAUI.csproj|d:\\project maui\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{EB907AF9-07D3-46E1-9CC2-23B20D0372E9}|Project MAUI.csproj|solutionrelative:components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{EB907AF9-07D3-46E1-9CC2-23B20D0372E9}|Project MAUI.csproj|c:\\users\\bpnap\\desktop\\project maui\\components\\pages\\transactionlist.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EB907AF9-07D3-46E1-9CC2-23B20D0372E9}|Project MAUI.csproj|solutionrelative:components\\pages\\transactionlist.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EB907AF9-07D3-46E1-9CC2-23B20D0372E9}|Project MAUI.csproj|c:\\users\\bpnap\\desktop\\project maui\\components\\pages\\dashboard.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EB907AF9-07D3-46E1-9CC2-23B20D0372E9}|Project MAUI.csproj|solutionrelative:components\\pages\\dashboard.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EB907AF9-07D3-46E1-9CC2-23B20D0372E9}|Project MAUI.csproj|c:\\users\\bpnap\\desktop\\project maui\\services\\currencyservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EB907AF9-07D3-46E1-9CC2-23B20D0372E9}|Project MAUI.csproj|solutionrelative:services\\currencyservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EB907AF9-07D3-46E1-9CC2-23B20D0372E9}|Project MAUI.csproj|c:\\users\\bpnap\\desktop\\project maui\\components\\pages\\alltransaction.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EB907AF9-07D3-46E1-9CC2-23B20D0372E9}|Project MAUI.csproj|solutionrelative:components\\pages\\alltransaction.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EB907AF9-07D3-46E1-9CC2-23B20D0372E9}|Project MAUI.csproj|c:\\users\\bpnap\\desktop\\project maui\\components\\pages\\register.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EB907AF9-07D3-46E1-9CC2-23B20D0372E9}|Project MAUI.csproj|solutionrelative:components\\pages\\register.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EB907AF9-07D3-46E1-9CC2-23B20D0372E9}|Project MAUI.csproj|c:\\users\\bpnap\\desktop\\project maui\\services\\userservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EB907AF9-07D3-46E1-9CC2-23B20D0372E9}|Project MAUI.csproj|solutionrelative:services\\userservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EB907AF9-07D3-46E1-9CC2-23B20D0372E9}|Project MAUI.csproj|c:\\users\\bpnap\\desktop\\project maui\\models\\transaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EB907AF9-07D3-46E1-9CC2-23B20D0372E9}|Project MAUI.csproj|solutionrelative:models\\transaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EB907AF9-07D3-46E1-9CC2-23B20D0372E9}|Project MAUI.csproj|c:\\users\\bpnap\\desktop\\project maui\\services\\transactionservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EB907AF9-07D3-46E1-9CC2-23B20D0372E9}|Project MAUI.csproj|solutionrelative:services\\transactionservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EB907AF9-07D3-46E1-9CC2-23B20D0372E9}|Project MAUI.csproj|c:\\users\\bpnap\\desktop\\project maui\\models\\appdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EB907AF9-07D3-46E1-9CC2-23B20D0372E9}|Project MAUI.csproj|solutionrelative:models\\appdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EB907AF9-07D3-46E1-9CC2-23B20D0372E9}|Project MAUI.csproj|c:\\users\\bpnap\\desktop\\project maui\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EB907AF9-07D3-46E1-9CC2-23B20D0372E9}|Project MAUI.csproj|solutionrelative:models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,19 +50,140 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AllTransaction.razor",
+              "DocumentMoniker": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\Components\\Pages\\AllTransaction.razor",
+              "RelativeDocumentMoniker": "Components\\Pages\\AllTransaction.razor",
+              "ToolTip": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\Components\\Pages\\AllTransaction.razor",
+              "RelativeToolTip": "Components\\Pages\\AllTransaction.razor",
+              "ViewState": "AgIAAEUAAAAAAAAAAAAwwFEAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-17T00:48:38.318Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Home.razor",
-              "DocumentMoniker": "D:\\Project MAUI\\Components\\Pages\\Home.razor",
-              "RelativeDocumentMoniker": "Components\\Pages\\Home.razor",
-              "ToolTip": "D:\\Project MAUI\\Components\\Pages\\Home.razor",
-              "RelativeToolTip": "Components\\Pages\\Home.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "Title": "TransactionList.razor",
+              "DocumentMoniker": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\Components\\Pages\\TransactionList.razor",
+              "RelativeDocumentMoniker": "Components\\Pages\\TransactionList.razor",
+              "ToolTip": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\Components\\Pages\\TransactionList.razor",
+              "RelativeToolTip": "Components\\Pages\\TransactionList.razor",
+              "ViewState": "AgIAALkAAAAAAAAAAAAuwM4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-17T13:25:18.602Z",
+              "WhenOpened": "2025-01-16T16:52:59.272Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Dashboard.razor",
+              "DocumentMoniker": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\Components\\Pages\\Dashboard.razor",
+              "RelativeDocumentMoniker": "Components\\Pages\\Dashboard.razor",
+              "ToolTip": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\Components\\Pages\\Dashboard.razor",
+              "RelativeToolTip": "Components\\Pages\\Dashboard.razor",
+              "ViewState": "AgIAAFYAAAAAAAAAAAAuwGIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-16T20:14:04.121Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Transactionservices.cs",
+              "DocumentMoniker": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\Services\\Transactionservices.cs",
+              "RelativeDocumentMoniker": "Services\\Transactionservices.cs",
+              "ToolTip": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\Services\\Transactionservices.cs",
+              "RelativeToolTip": "Services\\Transactionservices.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-16T22:53:45.34Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Transaction.cs",
+              "DocumentMoniker": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\Models\\Transaction.cs",
+              "RelativeDocumentMoniker": "Models\\Transaction.cs",
+              "ToolTip": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\Models\\Transaction.cs",
+              "RelativeToolTip": "Models\\Transaction.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-04T15:04:12.433Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Register.razor",
+              "DocumentMoniker": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\Components\\Pages\\Register.razor",
+              "RelativeDocumentMoniker": "Components\\Pages\\Register.razor",
+              "ToolTip": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\Components\\Pages\\Register.razor",
+              "RelativeToolTip": "Components\\Pages\\Register.razor",
+              "ViewState": "AgIAABsAAAAAAAAAAAAswCMAAABFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-16T23:31:17.836Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\Models\\User.cs",
+              "RelativeDocumentMoniker": "Models\\User.cs",
+              "ToolTip": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\Models\\User.cs",
+              "RelativeToolTip": "Models\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAsAAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-29T17:07:33.452Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "AppData.cs",
+              "DocumentMoniker": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\Models\\AppData.cs",
+              "RelativeDocumentMoniker": "Models\\AppData.cs",
+              "ToolTip": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\Models\\AppData.cs",
+              "RelativeToolTip": "Models\\AppData.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-04T15:01:47.147Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CurrencyServices.cs",
+              "DocumentMoniker": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\Services\\CurrencyServices.cs",
+              "RelativeDocumentMoniker": "Services\\CurrencyServices.cs",
+              "ToolTip": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\Services\\CurrencyServices.cs",
+              "RelativeToolTip": "Services\\CurrencyServices.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-16T19:15:05.05Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "UserServices.cs",
+              "DocumentMoniker": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\Services\\UserServices.cs",
+              "RelativeDocumentMoniker": "Services\\UserServices.cs",
+              "ToolTip": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\Services\\UserServices.cs",
+              "RelativeToolTip": "Services\\UserServices.cs",
+              "ViewState": "AgIAADMAAAAAAAAAAAAswDoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-29T17:11:09.436Z",
               "EditorCaption": ""
             }
           ]

@@ -1,0 +1,188 @@
+/* /Components/Layout/MainLayout.razor.rz.scp.css */
+.page[b-b4nadkpoey] {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+main[b-b4nadkpoey] {
+    flex: 1;
+}
+
+.sidebar[b-b4nadkpoey] {
+    background-image: linear-gradient(180deg, #F87171 0%, #3a0647 70%);
+}
+
+.top-row[b-b4nadkpoey] {
+    background-color: #F87171;
+    border-bottom: 1px solid #d6d5d5;
+    justify-content: flex-end;
+    height: 3.5rem;
+    display: flex;
+    align-items: center;
+}
+
+    .top-row[b-b4nadkpoey]  a, .top-row[b-b4nadkpoey]  .btn-link {
+        white-space: nowrap;
+        margin-left: 1.5rem;
+        text-decoration: none;
+    }
+
+        .top-row[b-b4nadkpoey]  a:hover, .top-row[b-b4nadkpoey]  .btn-link:hover {
+            text-decoration: underline;
+        }
+
+        .top-row[b-b4nadkpoey]  a:first-child {
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+@media (max-width: 640.98px) {
+    .top-row[b-b4nadkpoey] {
+        justify-content: space-between;
+    }
+
+        .top-row[b-b4nadkpoey]  a, .top-row[b-b4nadkpoey]  .btn-link {
+            margin-left: 0;
+        }
+}
+
+@media (min-width: 641px) {
+    .page[b-b4nadkpoey] {
+        flex-direction: row;
+    }
+
+    .sidebar[b-b4nadkpoey] {
+        width: 250px;
+        height: 100vh;
+        position: sticky;
+        top: 0;
+    }
+
+    .top-row[b-b4nadkpoey] {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+    }
+
+        .top-row.auth[b-b4nadkpoey]  a:first-child {
+            flex: 1;
+            text-align: right;
+            width: 0;
+        }
+
+    .top-row[b-b4nadkpoey], article[b-b4nadkpoey] {
+        padding-left: 2rem !important;
+        padding-right: 1.5rem !important;
+    }
+}
+/* /Components/Layout/NavMenu.razor.rz.scp.css */
+/* General Reset */
+*[b-76288m1kv2] {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Top Navbar */
+.top-row[b-76288m1kv2] {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 3.5rem;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 0 1rem;
+    color: white;
+}
+
+.navbar-toggler[b-76288m1kv2] {
+    appearance: none;
+    cursor: pointer;
+    width: 3.5rem;
+    height: 2.5rem;
+    position: relative;
+    background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") no-repeat center/1.75rem rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(248, 113, 113, 1);
+}
+
+.navbar-toggler:checked[b-76288m1kv2] {
+    background-color: rgba(248, 113, 113, 1);
+}
+
+.navbar-brand[b-76288m1kv2] {
+    font-size: 1.1rem;
+}
+
+/* Sidebar Navigation */
+.nav-scrollable[b-76288m1kv2] {
+    display: none; /* Hidden by default on smaller screens */
+    flex-direction: row;
+    gap: 3rem;
+    padding: 1rem;
+    background-color: rgb(113, 227, 248);
+    color: white;
+    height: calc(100vh - 3.5rem); /* Full height below the navbar */
+    overflow-y: auto;
+    position: fixed; /* Keeps it fixed to the left */
+    top: 3.5rem; /* Positioned below the top row */
+    width: 15rem; /* Fixed width for the sidebar */
+}
+
+/* Individual Menu Items */
+.nav-item[b-76288m1kv2] {
+    font-size: 1rem;
+}
+
+.nav-item a[b-76288m1kv2] {
+    color: #d7d7d7;
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    display: block; /* Makes the link fill its container */
+    text-decoration: none;
+}
+
+.nav-item a.active[b-76288m1kv2] {
+    background-color: rgba(255, 255, 255, 0.37);
+    color: white;
+}
+
+.nav-item a:hover[b-76288m1kv2] {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+/* Show Sidebar on Wide Screens */
+@media (min-width: 641px) {
+    .navbar-toggler[b-76288m1kv2] {
+        display: none;
+    }
+
+    .nav-scrollable[b-76288m1kv2] {
+        display: flex; /* Sidebar visible by default on larger screens */
+        height: calc(100vh - 3.5rem);
+    }
+}
+
+/* Main Content Styling */
+main[b-76288m1kv2] {
+    margin-left: 15rem; /* Reserve space for the sidebar */
+    padding: 1rem;
+    background-color: #f9f9f9;
+    min-height: calc(100vh - 3.5rem);
+}
+
+/* On Small Screens, Hide Sidebar */
+@media (max-width: 640px) {
+    .nav-scrollable[b-76288m1kv2] {
+        position: absolute;
+        top: 3.5rem;
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 3.5rem);
+        z-index: 10;
+    }
+
+    main[b-76288m1kv2] {
+        margin-left: 0;
+    }
+}

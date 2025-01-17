@@ -1,0 +1,463 @@
+﻿@page "/dashboard"
+@using Project_MAUI.Components.Model
+@inject UserService UserService
+@inject NavigationManager NavigationManager
+
+<div class="dashboard-container">
+    <header class="dashboard-header">
+        <h1>Financial Dashboard</h1>
+        <p class="subtitle">Track your financial health and transactions</p>
+    </header>
+
+    <div class="filter-container">
+        <div class="filter-header">
+            <h2>Date Range</h2>
+            <button @onclick="RefreshData" class="refresh-button">
+                <span>↻</span> Refresh
+            </button>
+        </div>
+        <div class="filter-inputs">
+            <div class="input-group">
+                <label for="startDate">From</label>
+                <input type="date" id="startDate" @bind="startDate" class="date-input" />
+            </div>
+            <div class="input-group">
+                <label for="endDate">To</label>
+                <input type="date" id="endDate" @bind="endDate" class="date-input" />
+            </div>
+            <button @onclick="ApplyFiltration" class="apply-button">Apply Filter</button>
+        </div>
+    </div>
+
+    <div class="stats-grid">
+        <div class="stats-card income">
+            <div class="card-icon">↑</div>
+            <div class="card-content">
+                <h3>Total Inflows</h3>
+                <p class="amount">@TotalInflows.ToString("C")</p>
+            </div>
+        </div>
+        <div class="stats-card expenses">
+            <div class="card-icon">↓</div>
+            <div class="card-content">
+                <h3>Total Outflows</h3>
+                <p class="amount">@TotalOutflows.ToString("C")</p>
+            </div>
+        </div>
+        <div class="stats-card balance">
+            <div class="card-icon">=</div>
+            <div class="card-content">
+                <h3>Net Balance</h3>
+                <p class="amount">@NetBalance.ToString("C")</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-grid">
+        <div class="debt-overview">
+            <h2>Debt Overview</h2>
+            <div class="debt-stats">
+                <div class="debt-item">
+                    <span>Total Debts</span>
+                    <span class="amount">@TotalDebts.ToString("C")</span>
+                </div>
+                <div class="debt-item">
+                    <span>Cleared Debts</span>
+                    <span class="amount success">@ClearedDebts.ToString("C")</span>
+                </div>
+                <div class="debt-item">
+                    <span>Remaining Debts</span>
+                    <span class="amount warning">@RemainingDebts.ToString("C")</span>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="transactions-list">
+            <h2>Recent Transactions</h2>
+            <p class="transaction-count">Showing @FilteredTransactions.Count() transactions</p>
+            <div class="transactions-container">
+                @foreach (var transaction in FilteredTransactions)
+                {
+                    <div class="transaction-item">
+                        <div class="transaction-date">
+                            @transaction.Date.ToString("MMM dd")
+                        </div>
+                        <div class="transaction-type @(transaction.Type.ToLower())">
+                            @transaction.Type
+                        </div>
+                        <div class="transaction-amount">
+                            @GetTransactionAmount(transaction)
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<style>
+    .dashboard-container {
+        padding: 2rem;
+        max-width: 1400px;
+        margin: 0 auto;
+        background: #f8fafc;
+        min-height: 100vh;
+    }
+
+    .dashboard-header {
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+
+        .dashboard-header h1 {
+            color: #1e293b;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+    .subtitle {
+        color: #64748b;
+        font-size: 1.1rem;
+    }
+
+    .filter-container {
+        background: white;
+        padding: 1.5rem;
+        border-radius: 1rem;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        margin-bottom: 2rem;
+    }
+
+    .filter-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+
+        .filter-header h2 {
+            font-size: 1.25rem;
+            color: #334155;
+            margin: 0;
+        }
+
+    .filter-inputs {
+        display: flex;
+        gap: 1rem;
+        align-items: flex-end;
+        flex-wrap: wrap;
+    }
+
+    .input-group {
+        flex: 1;
+        min-width: 200px;
+    }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #64748b;
+            font-size: 0.875rem;
+        }
+
+    .date-input {
+        width: 100%;
+        padding: 0.75rem;
+        border: 1px solid #e2e8f0;
+        border-radius: 0.5rem;
+        font-size: 1rem;
+    }
+
+    .refresh-button {
+        background: #e2e8f0;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+        color: #475569;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: all 0.2s;
+    }
+
+        .refresh-button:hover {
+            background: #cbd5e1;
+        }
+
+    .apply-button {
+        padding: 0.75rem 1.5rem;
+        background: #3b82f6;
+        color: white;
+        border: none;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        transition: all 0.2s;
+        min-width: 120px;
+    }
+
+        .apply-button:hover {
+            background: #2563eb;
+        }
+
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .stats-card {
+        background: white;
+        padding: 1.5rem;
+        border-radius: 1rem;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+    }
+
+    .card-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+    }
+
+    .income .card-icon {
+        background: #dcfce7;
+        color: #16a34a;
+    }
+
+    .expenses .card-icon {
+        background: #fee2e2;
+        color: #dc2626;
+    }
+
+    .balance .card-icon {
+        background: #e0e7ff;
+        color: #4f46e5;
+    }
+
+    .card-content h3 {
+        color: #64748b;
+        font-size: 0.875rem;
+        margin: 0 0 0.5rem 0;
+    }
+
+    .card-content .amount {
+        color: #1e293b;
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin: 0;
+    }
+
+    .content-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .debt-overview, .transactions-list {
+        background: white;
+        padding: 1.5rem;
+        border-radius: 1rem;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+        .debt-overview h2, .transactions-list h2 {
+            color: #334155;
+            font-size: 1.25rem;
+            margin: 0 0 1.5rem 0;
+        }
+
+    .debt-stats {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .debt-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+        background: #f8fafc;
+        border-radius: 0.5rem;
+    }
+
+        .debt-item span {
+            color: #64748b;
+        }
+
+        .debt-item .amount {
+            font-weight: 600;
+            color: #1e293b;
+        }
+
+    .amount.success {
+        color: #16a34a;
+    }
+
+    .amount.warning {
+        color: #dc2626;
+    }
+
+    .transaction-count {
+        color: #64748b;
+        font-size: 0.875rem;
+        margin: 0 0 1rem 0;
+    }
+
+    .transactions-container {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .transaction-item {
+        display: grid;
+        grid-template-columns: auto auto 1fr;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem;
+        background: #f8fafc;
+        border-radius: 0.5rem;
+    }
+
+    .transaction-date {
+        color: #64748b;
+        font-size: 0.875rem;
+    }
+
+    .transaction-type {
+        padding: 0.25rem 0.75rem;
+        border-radius: 1rem;
+        font-size: 0.75rem;
+        font-weight: 500;
+        text-transform: uppercase;
+    }
+
+        .transaction-type.credit {
+            background: #dcfce7;
+            color: #16a34a;
+        }
+
+        .transaction-type.debit {
+            background: #fee2e2;
+            color: #dc2626;
+        }
+
+    .transaction-amount {
+        text-align: right;
+        font-weight: 600;
+        color: #1e293b;
+    }
+
+    media (max-width: 768px) {
+        .dashboard-container
+
+    {
+        padding: 1rem;
+    }
+
+    .filter-inputs {
+        flex-direction: column;
+    }
+
+    .input-group {
+        width: 100%;
+    }
+
+    .content-grid {
+        grid-template-columns: 1fr;
+    }
+
+    }
+</style>
+
+@code {
+    // Keeping the original code block unchanged as requested
+    private AppData Data;
+    private DateTime? startDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+    private DateTime? endDate = DateTime.Now.Date;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await RefreshData();
+    }
+
+    private async Task RefreshData()
+    {
+        try
+        {
+            Data = UserService.LoadData();
+            Console.WriteLine($"Data refreshed. Transaction count: {Data?.Transactions?.Count() ?? 0}");
+            await InvokeAsync(StateHasChanged);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error refreshing data: {ex.Message}");
+        }
+    }
+
+    private IEnumerable<Transaction> FilteredTransactions
+    {
+        get
+        {
+            if (Data?.Transactions == null)
+            {
+                return Enumerable.Empty<Transaction>();
+            }
+
+            var query = Data.Transactions.AsEnumerable();
+
+            if (startDate.HasValue)
+            {
+                query = query.Where(t => t.Date >= startDate.Value);
+            }
+
+            if (endDate.HasValue)
+            {
+                query = query.Where(t => t.Date <= endDate.Value);
+            }
+
+            return query;
+        }
+    }
+
+    private decimal TotalInflows => FilteredTransactions
+        .Where(t => t.Type.Equals("Credit", StringComparison.OrdinalIgnoreCase))
+        .Sum(t => t.Amount);
+
+    private decimal TotalOutflows => FilteredTransactions
+        .Where(t => t.Type.Equals("Debit", StringComparison.OrdinalIgnoreCase))
+        .Sum(t => t.Amount);
+
+    private decimal TotalDebts => Data?.Debts?.Sum(d => d.Amount) ?? 0;
+
+    private decimal ClearedDebts => Data?.Debts?
+        .Where(d => d.Status.Equals("Paid", StringComparison.OrdinalIgnoreCase))
+        .Sum(d => d.PaidAmount) ?? 0;
+
+    private decimal RemainingDebts => Data?.Debts?
+        .Where(d => d.Status.Equals("Pending", StringComparison.OrdinalIgnoreCase))
+        .Sum(d => d.RemainingAmount) ?? 0;
+
+    private decimal NetBalance => TotalInflows - TotalOutflows;
+
+    private string GetTransactionAmount(Transaction t) =>
+        t.Amount.ToString("C");
+
+    private void ApplyFiltration()
+    {
+        StateHasChanged();
+    }
+}

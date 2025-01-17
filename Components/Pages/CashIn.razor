@@ -1,0 +1,388 @@
+﻿@page "/cashin"
+@using Project_MAUI.Components.Model
+@inject UserService UserService
+@inject NavigationManager NavigationManager
+
+<div class="transaction_page">
+    <div class="transaction_box">
+        <div class="header-section">
+            <h1>Cash In</h1>
+            <!-- View All Transactions button with navigation to /alltransactions -->
+            <button @onclick="NavigateToAllTransactions" class="btn-secondary">View All Transactions</button>
+        </div>
+
+        @if (!string.IsNullOrEmpty(Message))
+        {
+            <div class="@(Message.Contains("success") ? "alert alert-success" : "alert alert-warning")">
+                @Message
+            </div>
+        }
+
+        <div class="balance-summary">
+            <div class="balance-card">
+                <div class="balance-amount">@CurrentBalance.ToString("C")</div>
+                <div class="balance-label">Current Balance</div>
+            </div>
+        </div>
+
+        <div class="quick-stats">
+            <div class="stat-card">
+                <span class="stat-label">Today's Cash In</span>
+                <span class="stat-value">@TodaysCashIn.ToString("C")</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-label">This Month</span>
+                <span class="stat-value">@ThisMonthCashIn.ToString("C")</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-label">Total Cash In</span>
+                <span class="stat-value">@TotalCredit.ToString("C")</span>
+            </div>
+        </div>
+
+        <div class="cashin-form">
+            <h3>New Cash In Transaction</h3>
+            <div class="form-group">
+                <InputNumber @bind-Value="newTransaction.Credit" class="form-control" placeholder="Amount to cash in" />
+                <InputText @bind-Value="newTransaction.Notes" class="form-control" placeholder="Add a note (optional)" />
+                <button @onclick="HandleTransactionSubmit" class="btn-add-new">Complete Cash In</button>
+            </div>
+        </div>
+
+        <div class="recent-transactions">
+            <h3>Recent Transactions</h3>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Date & Time</th>
+                            <th>Amount</th>
+                            <th>Notes</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var transaction in RecentTransactions)
+                        {
+                            <tr>
+                                <td>@transaction.Date.ToString("MM/dd/yyyy HH:mm")</td>
+                                <td>@transaction.Credit.ToString("C")</td>
+                                <td>@transaction.Notes</td>
+                                <td>
+                                    @if ((DateTime.Now - transaction.Date).TotalMinutes <= 5)
+                                    {
+                                        <button @onclick="() => DeleteTransaction(transaction)" class="btn-delete">Delete</button>
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    private int CurrentUserId { get; set; }
+    private Transaction newTransaction = new Transaction { Type = "Credit" };
+    private string Message = "";
+    private AppData Data;
+
+    private decimal TotalCredit => Data?.Transactions
+        ?.Where(t => t.UserId == CurrentUserId && t.Type == "Credit")
+        .Sum(t => t.Credit) ?? 0;
+
+    private decimal TodaysCashIn => Data?.Transactions
+        ?.Where(t => t.UserId == CurrentUserId &&
+                    t.Type == "Credit" &&
+                    t.Date.Date == DateTime.Today)
+        .Sum(t => t.Credit) ?? 0;
+
+    private decimal ThisMonthCashIn => Data?.Transactions
+        ?.Where(t => t.UserId == CurrentUserId &&
+                    t.Type == "Credit" &&
+                    t.Date.Month == DateTime.Now.Month &&
+                    t.Date.Year == DateTime.Now.Year)
+        .Sum(t => t.Credit) ?? 0;
+
+    private decimal CurrentBalance => Data?.Transactions
+        ?.Where(t => t.UserId == CurrentUserId)
+        .Sum(t => t.Type == "Credit" ? t.Credit : -t.Debit) ?? 0;
+
+    private IEnumerable<Transaction> RecentTransactions => Data?.Transactions
+        ?.Where(t => t.UserId == CurrentUserId && t.Type == "Credit")
+        .OrderByDescending(t => t.Date)
+        .Take(10) ?? Enumerable.Empty<Transaction>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        Data = UserService.LoadData();
+        CurrentUserId = 1;
+        if (Data == null)
+        {
+            Data = new AppData { Transactions = new List<Transaction>() };
+        }
+        StateHasChanged();
+    }
+
+    private void HandleTransactionSubmit()
+    {
+        if (newTransaction.Credit <= 0)
+        {
+            Message = "Please enter a valid amount greater than 0.";
+            return;
+        }
+
+        if (newTransaction.Credit > 1000000) 
+        {
+            Message = "Amount exceeds maximum limit. Please contact support for large transactions.";
+            return;
+        }
+
+        var transaction = new Transaction
+            {
+                Id = Data.Transactions.Count + 1,
+                UserId = CurrentUserId,
+                Date = DateTime.Now,
+                Credit = newTransaction.Credit,
+                Type = "Credit",
+                Tags = new List<string> { "CashIn" },
+                Notes = string.IsNullOrEmpty(newTransaction.Notes) ? "Cash deposit" : newTransaction.Notes
+            };
+
+        Data.Transactions.Add(transaction);
+        UserService.SaveData(Data);
+
+        newTransaction = new Transaction { Type = "Credit" };
+        Message = "✓ Cash in transaction completed successfully.";
+        StateHasChanged();
+    }
+
+    private void DeleteTransaction(Transaction transaction)
+    {
+        if (transaction.UserId != CurrentUserId)
+        {
+            Message = "You can only delete your own transactions.";
+            return;
+        }
+
+        // Only allow deletion within 5 minutes of creation
+        if ((DateTime.Now - transaction.Date).TotalMinutes > 5)
+        {
+            Message = "Transactions can only be deleted within 5 minutes of creation.";
+            return;
+        }
+
+        Data.Transactions.Remove(transaction);
+        UserService.SaveData(Data);
+        Message = "Transaction deleted successfully.";
+        StateHasChanged();
+    }
+
+    private void NavigateToAllTransactions()
+    {
+        // Navigate to the all transactions page
+        NavigationManager.NavigateTo("/transactionlist");
+    }
+}
+
+
+<style>
+    .transaction_page {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        background-color: #f8f9fa;
+        min-height: 100vh;
+    }
+
+    .transaction_box {
+        max-width: 1200px;
+        margin: 0 auto;
+        background: #ffffff;
+        border-radius: 12px;
+        padding: 30px;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .header-section {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 30px;
+    }
+
+    .balance-summary {
+        text-align: center;
+        margin: 40px 0;
+    }
+
+    .balance-card {
+        display: inline-block;
+        padding: 30px 60px;
+        background: #28a745;
+        border-radius: 12px;
+        color: white;
+        box-shadow: 0 4px 12px rgba(40, 167, 69, 0.2);
+    }
+
+    .balance-amount {
+        font-size: 36px;
+        font-weight: bold;
+        margin-bottom: 8px;
+    }
+
+    .balance-label {
+        font-size: 16px;
+        opacity: 0.9;
+    }
+
+    .quick-stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        margin: 30px 0;
+    }
+
+    .stat-card {
+        background: #f8f9fa;
+        padding: 20px;
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .stat-label {
+        font-size: 14px;
+        color: #666;
+        margin-bottom: 8px;
+    }
+
+    .stat-value {
+        font-size: 24px;
+        font-weight: bold;
+        color: #28a745;
+    }
+
+    .cashin-form {
+        background: #f8f9fa;
+        border-radius: 12px;
+        padding: 25px;
+        margin: 30px 0;
+    }
+
+    .form-group {
+        display: grid;
+        gap: 15px;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .btn-add-new {
+        background-color: #28a745;
+        color: white;
+        padding: 15px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.2s;
+    }
+
+        .btn-add-new:hover {
+            background-color: #218838;
+        }
+
+    .btn-secondary {
+        background-color: #6c757d;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+
+        .btn-secondary:hover {
+            background-color: #5a6268;
+        }
+
+    .form-control {
+        padding: 12px;
+        border: 1px solid #dee2e6;
+        border-radius: 6px;
+        font-size: 16px;
+    }
+
+    .alert {
+        padding: 15px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+    }
+
+    .alert-success {
+        background-color: #d4edda;
+        color: #155724;
+        border: 1px solid #c3e6cb;
+    }
+
+    .alert-warning {
+        background-color: #fff3cd;
+        color: #856404;
+        border: 1px solid #ffeeba;
+    }
+
+    .recent-transactions {
+        margin-top: 40px;
+    }
+
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 15px;
+    }
+
+        .table th {
+            background-color: #f8f9fa;
+            color: #495057;
+            padding: 12px;
+            text-align: left;
+            border-bottom: 2px solid #dee2e6;
+        }
+
+        .table td {
+            padding: 12px;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+    .btn-delete {
+        background-color: #dc3545;
+        color: white;
+        padding: 6px 12px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+    }
+
+        .btn-delete:hover {
+            background-color: #c82333;
+        }
+
+    media (max-width: 768px) {
+        .quick-stats
+
+    {
+        grid-template-columns: 1fr;
+    }
+
+    .balance-card {
+        padding: 20px 40px;
+    }
+
+    .balance-amount {
+        font-size: 28px;
+    }
+
+    }
+</style>

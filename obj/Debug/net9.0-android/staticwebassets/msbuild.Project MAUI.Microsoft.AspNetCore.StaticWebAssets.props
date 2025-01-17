@@ -66,8 +66,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>9a9ec0esrr</Fingerprint>
-      <Integrity>gZK2wsfEpKIdEImel2zgBs6YEtKuvynSOI2pwbUpIEg=</Integrity>
+      <Fingerprint>qp6t3c59q6</Fingerprint>
+      <Integrity>PuoOaXPQ+gED/c74VIJFovbewgXGazO1vDp3vGxaKJs=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\index.html'))</OriginalItemSpec>
@@ -84,8 +84,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName>ScopedCss</AssetTraitName>
       <AssetTraitValue>ApplicationBundle</AssetTraitValue>
-      <Fingerprint>b7my3yq95k</Fingerprint>
-      <Integrity>5y+sWcdqF5t70scFkYrq99AqeiVM6JpGkpiIy+nUQUQ=</Integrity>
+      <Fingerprint>zsgbrb8wx5</Fingerprint>
+      <Integrity>LU/Z4/zH/zjT844k9/cZmuN/7Gf52zx6CZApWovwKJs=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\Project MAUI.styles.css'))</OriginalItemSpec>

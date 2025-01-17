@@ -1,0 +1,311 @@
+﻿@page "/mydebt"
+@using Project_MAUI.Components.Model
+@inject UserService UserService
+
+<div class="debt-page">
+    <div class="debt-section">
+        <h1>User Debts</h1>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Source</th>
+                        <th>Total Amount</th>
+                        <th>Paid Amount</th>
+                        <th>Remaining</th>
+                        <th>Due Date</th>
+                        <th>Status</th>
+                        <th>Payment Method</th>
+                        <th>Tags</th>
+                        <th>Notes</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var debt in Data.Debts.OrderByDescending(d => d.DueDate))
+                    {
+                        <tr class="@GetDebtRowClass(debt)">
+                            <td>@debt.Id</td>
+                            <td>@debt.Source</td>
+                            <td>@debt.Amount.ToString("C")</td>
+                            <td>@debt.PaidAmount.ToString("C")</td>
+                            <td>@debt.RemainingAmount.ToString("C")</td>
+                            <td>@debt.DueDate?.ToString("MM/dd/yyyy")</td>
+                            <td>@debt.Status</td>
+                            <td>@debt.PaymentMethod</td>
+                            <td>@string.Join(", ", debt.Tags)</td>
+                            <td>@debt.Notes</td>
+                            <td>
+                                <button @onclick="() => DeleteDebt(debt)" class="btn-delete">Delete</button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="new-debt-section">
+        <h2>Add New Debt</h2>
+        <EditForm Model="newDebt" OnValidSubmit="HandleDebtSubmit">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="source">Debt Source</label>
+                    <InputText id="source" @bind-Value="newDebt.Source" class="form-control" />
+                </div>
+
+                <div class="form-group">
+                    <label for="amount">Debt Amount</label>
+                    <InputNumber id="amount" @bind-Value="newDebt.Amount" class="form-control" />
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="dueDate">Due Date</label>
+                    <InputDate id="dueDate" @bind-Value="newDebt.DueDate" class="form-control" />
+                </div>
+
+                <div class="form-group">
+                    <label for="paidAmount">Amount Paid</label>
+                    <InputNumber id="paidAmount" @bind-Value="newDebt.PaidAmount" class="form-control" />
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="paymentMethod">Payment Method</label>
+                    <InputSelect id="paymentMethod" @bind-Value="newDebt.PaymentMethod" class="form-control">
+                        <option value="">Select Payment Method</option>
+                        <option value="Cash">Cash</option>
+                        <option value="Credit Card">Credit Card</option>
+                        <option value="Bank Transfer">Bank Transfer</option>
+                        <option value="Other">Other</option>
+                    </InputSelect>
+                </div>
+
+                <div class="form-group">
+                    <label for="status">Status</label>
+                    <InputSelect id="status" @bind-Value="newDebt.Status" class="form-control">
+                        <option value="Pending">Pending</option>
+                        <option value="Paid">Paid</option>
+                        <option value="Overdue">Overdue</option>
+                    </InputSelect>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="tags">Tags (comma-separated)</label>
+                    <InputText id="tags" @bind-Value="tagInput" class="form-control"
+                               placeholder="e.g., Credit, Loan, Personal" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="notes">Notes</label>
+                <InputTextArea id="notes" @bind-Value="newDebt.Notes" class="form-control" rows="3" />
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="btn-submit">Add Debt</button>
+                <button type="button" @onclick="ResetForm" class="btn-reset">Reset</button>
+            </div>
+        </EditForm>
+    </div>
+</div>
+
+@code {
+    private AppData Data;
+    private Debt newDebt = new Debt();
+    private string tagInput = "";
+
+    protected override void OnInitialized()
+    {
+        Data = UserService.LoadData();
+        InitializeNewDebt();
+    }
+
+    private void InitializeNewDebt()
+    {
+        newDebt = new Debt
+            {
+                Date = DateTime.Now,
+                DueDate = DateTime.Now.AddMonths(1),
+                Status = "Pending",
+                PaidAmount = 0,
+                Amount = 0, // Reset the amount as well
+                Tags = new List<string>(), // Reset the tags
+                Notes = "" // Reset the notes
+            };
+        tagInput = ""; // Reset the tag input as well
+    }
+
+    private void HandleDebtSubmit()
+    {
+        newDebt.Id = Data.Debts.Count + 1;
+        newDebt.Tags = tagInput.Split(',').Select(t => t.Trim()).Where(t => !string.IsNullOrEmpty(t)).ToList();
+
+        // Automatically calculate RemainingAmount
+        newDebt.RemainingAmount = newDebt.Amount - newDebt.PaidAmount;
+
+        // Automatically set the status to "Paid" if fully paid
+        if (newDebt.PaidAmount >= newDebt.Amount)
+        {
+            newDebt.Status = "Paid";
+            newDebt.RemainingAmount = 0;
+        }
+        else
+        {
+            newDebt.Status = "Pending";
+        }
+
+        Data.Debts.Add(newDebt);
+        UserService.SaveData(Data);
+
+        InitializeNewDebt();
+    }
+
+    private void MakePayment(Debt debt, decimal paymentAmount)
+    {
+        if (paymentAmount > 0)
+        {
+            debt.PaidAmount += paymentAmount;
+
+            // Update remaining amount
+            debt.RemainingAmount = debt.Amount - debt.PaidAmount;
+
+            // Check if the debt is fully paid
+            if (debt.RemainingAmount <= 0)
+            {
+                debt.RemainingAmount = 0; // Ensure no negative values
+                debt.Status = "Paid"; // Set status to Paid
+            }
+            else if (debt.RemainingAmount > 0)
+            {
+                debt.Status = "Pending"; // Keep as Pending if partially paid
+            }
+        }
+
+        // Save data and refresh the page
+        UserService.SaveData(Data);
+        StateHasChanged();
+    }
+
+    private void DeleteDebt(Debt debt)
+    {
+        Data.Debts.Remove(debt);
+        UserService.SaveData(Data);
+        StateHasChanged();
+    }
+
+    private void ResetForm()
+    {
+        InitializeNewDebt();
+        tagInput = "";
+    }
+
+    private string GetDebtRowClass(Debt debt)
+    {
+        return debt.Status == "Pending" ? "pending-debt" : "";
+    }
+}
+
+<style>
+    .debt-page {
+        padding: 20px;
+        background-color: #f4f7fa;
+    }
+
+    .debt-section {
+        margin-bottom: 30px;
+    }
+
+    h1 {
+        font-size: 2rem;
+        color: #333;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        background-color: #fff;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    th, td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .btn-delete {
+        background-color: #e74c3c;
+        color: white;
+        padding: 6px 12px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+        .btn-delete:hover {
+            background-color: #c0392b;
+        }
+
+    .new-debt-section {
+        margin-top: 40px;
+        padding: 20px;
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    label {
+        font-weight: bold;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+
+    .form-actions button {
+        padding: 10px 20px;
+        font-size: 1rem;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .btn-submit {
+        background-color: #3498db;
+        color: white;
+    }
+
+        .btn-submit:hover {
+            background-color: #2980b9;
+        }
+
+    .btn-reset {
+        background-color: #95a5a6;
+        color: white;
+    }
+
+        .btn-reset:hover {
+            background-color: #7f8c8d;
+        }
+</style>

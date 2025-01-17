@@ -1,23 +1,23 @@
 {
   "Files": [
     {
-      "Id": "D:\\Project MAUI\\obj\\Debug\\net9.0-android\\scopedcss\\bundle\\Project MAUI.styles.css",
+      "Id": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\obj\\Debug\\net9.0-android\\scopedcss\\bundle\\Project MAUI.styles.css",
       "PackagePath": "staticwebassets\\Project MAUI.styles.css"
     },
     {
-      "Id": "D:\\Project MAUI\\wwwroot\\css\\app.css",
+      "Id": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\wwwroot\\css\\app.css",
       "PackagePath": "staticwebassets\\css\\app.css"
     },
     {
-      "Id": "D:\\Project MAUI\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "Id": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Id": "D:\\Project MAUI\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "Id": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Id": "D:\\Project MAUI\\wwwroot\\index.html",
+      "Id": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\wwwroot\\index.html",
       "PackagePath": "staticwebassets\\index.html"
     },
     {

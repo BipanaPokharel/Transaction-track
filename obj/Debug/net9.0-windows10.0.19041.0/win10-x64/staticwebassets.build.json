@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "YD8NOXJif2fyK3+cBZPRHc7QRIfie/qE3easLSSBYhg=",
+  "Hash": "WlFtELap+2TSl7ABHtqvbZJfVL1+2jSIHp7quyi9fHY=",
   "Source": "Project MAUI",
   "BasePath": "/",
   "Mode": "Root",
@@ -10,17 +10,17 @@
     {
       "Name": "Project MAUI\\wwwroot",
       "Source": "Project MAUI",
-      "ContentRoot": "D:\\Project MAUI\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\wwwroot\\",
       "BasePath": "/",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "D:\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\5xg1fq34cy-8inm30yfxf.gz",
+      "Identity": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\5xg1fq34cy-8inm30yfxf.gz",
       "SourceId": "Project MAUI",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\",
+      "ContentRoot": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\",
       "BasePath": "/",
       "RelativePath": "css/bootstrap/bootstrap.min.css#[.{fingerprint=8inm30yfxf}]?.map.gz",
       "AssetKind": "All",
@@ -28,41 +28,41 @@
       "AssetRole": "Alternative",
       "AssetMergeBehavior": "",
       "AssetMergeSource": "",
-      "RelatedAsset": "D:\\Project MAUI\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "RelatedAsset": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
       "Fingerprint": "fbl5ivwo6k",
       "Integrity": "Kym5HpgDYV8Caci50HDUPG6WCQ6nTP+8hy429w+zHVU=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\Project MAUI\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map"
+      "OriginalItemSpec": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Identity": "D:\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\b9nxz86vbo-b7my3yq95k.gz",
+      "Identity": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\b9nxz86vbo-zsgbrb8wx5.gz",
       "SourceId": "Project MAUI",
       "SourceType": "Computed",
-      "ContentRoot": "D:\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\",
+      "ContentRoot": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\",
       "BasePath": "/",
-      "RelativePath": "Project MAUI#[.{fingerprint=b7my3yq95k}]!.bundle.scp.css.gz",
+      "RelativePath": "Project MAUI#[.{fingerprint=zsgbrb8wx5}]!.bundle.scp.css.gz",
       "AssetKind": "All",
       "AssetMode": "Reference",
       "AssetRole": "Alternative",
       "AssetMergeBehavior": "",
       "AssetMergeSource": "",
-      "RelatedAsset": "D:\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\scopedcss\\projectbundle\\Project MAUI.bundle.scp.css",
+      "RelatedAsset": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\scopedcss\\projectbundle\\Project MAUI.bundle.scp.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "813cwe5qkv",
-      "Integrity": "XIJ/L6DeCm0msATLwDJp0ix0zLZ7+vlT21M0ypKZNb4=",
+      "Fingerprint": "1o26t3ul7k",
+      "Integrity": "/2Oez5kAkK+Qpw2M8opO3yLi8TownRWYBKVpgAFs0S8=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\scopedcss\\projectbundle\\Project MAUI.bundle.scp.css"
+      "OriginalItemSpec": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\scopedcss\\projectbundle\\Project MAUI.bundle.scp.css"
     },
     {
-      "Identity": "D:\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\hbusayt2hl-e5tk7yf482.gz",
+      "Identity": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\hbusayt2hl-e5tk7yf482.gz",
       "SourceId": "Project MAUI",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\",
+      "ContentRoot": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\",
       "BasePath": "/",
       "RelativePath": "css/app#[.{fingerprint=e5tk7yf482}]?.css.gz",
       "AssetKind": "All",
@@ -70,62 +70,62 @@
       "AssetRole": "Alternative",
       "AssetMergeBehavior": "",
       "AssetMergeSource": "",
-      "RelatedAsset": "D:\\Project MAUI\\wwwroot\\css\\app.css",
+      "RelatedAsset": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\wwwroot\\css\\app.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
       "Fingerprint": "9sb0w9jnhl",
       "Integrity": "qQ+vo7zHfjEIsR7Ks2Vsx0CJAT5ngXzV3IUcVLWwEfw=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\Project MAUI\\wwwroot\\css\\app.css"
+      "OriginalItemSpec": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\wwwroot\\css\\app.css"
     },
     {
-      "Identity": "D:\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\mafyosdqbr-b7my3yq95k.gz",
+      "Identity": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\mafyosdqbr-zsgbrb8wx5.gz",
       "SourceId": "Project MAUI",
       "SourceType": "Computed",
-      "ContentRoot": "D:\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\",
+      "ContentRoot": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\",
       "BasePath": "/",
-      "RelativePath": "Project MAUI#[.{fingerprint=b7my3yq95k}]?.styles.css.gz",
+      "RelativePath": "Project MAUI#[.{fingerprint=zsgbrb8wx5}]?.styles.css.gz",
       "AssetKind": "All",
       "AssetMode": "CurrentProject",
       "AssetRole": "Alternative",
       "AssetMergeBehavior": "",
       "AssetMergeSource": "",
-      "RelatedAsset": "D:\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\scopedcss\\bundle\\Project MAUI.styles.css",
+      "RelatedAsset": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\scopedcss\\bundle\\Project MAUI.styles.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "813cwe5qkv",
-      "Integrity": "XIJ/L6DeCm0msATLwDJp0ix0zLZ7+vlT21M0ypKZNb4=",
+      "Fingerprint": "1o26t3ul7k",
+      "Integrity": "/2Oez5kAkK+Qpw2M8opO3yLi8TownRWYBKVpgAFs0S8=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\scopedcss\\bundle\\Project MAUI.styles.css"
+      "OriginalItemSpec": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\scopedcss\\bundle\\Project MAUI.styles.css"
     },
     {
-      "Identity": "D:\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\ou07rvqj3c-9a9ec0esrr.gz",
+      "Identity": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\ou07rvqj3c-qp6t3c59q6.gz",
       "SourceId": "Project MAUI",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\",
+      "ContentRoot": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\",
       "BasePath": "/",
-      "RelativePath": "index#[.{fingerprint=9a9ec0esrr}]?.html.gz",
+      "RelativePath": "index#[.{fingerprint=qp6t3c59q6}]?.html.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
       "AssetMergeBehavior": "",
       "AssetMergeSource": "",
-      "RelatedAsset": "D:\\Project MAUI\\wwwroot\\index.html",
+      "RelatedAsset": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\wwwroot\\index.html",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "msxxlcqi9f",
-      "Integrity": "qtGg+mqHDK2crsj4e5U8jQWi6Vp3el35LrG9foImqM8=",
+      "Fingerprint": "cynp3sxs9c",
+      "Integrity": "hChioIndBB0lMidKhYF0ncXv4maXK1VDG8nixL5GB9I=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\Project MAUI\\wwwroot\\index.html"
+      "OriginalItemSpec": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\wwwroot\\index.html"
     },
     {
-      "Identity": "D:\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\sjtrcecv73-6gzpyzhau4.gz",
+      "Identity": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\sjtrcecv73-6gzpyzhau4.gz",
       "SourceId": "Project MAUI",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\",
+      "ContentRoot": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\",
       "BasePath": "/",
       "RelativePath": "css/bootstrap/bootstrap.min#[.{fingerprint=6gzpyzhau4}]?.css.gz",
       "AssetKind": "All",
@@ -133,20 +133,20 @@
       "AssetRole": "Alternative",
       "AssetMergeBehavior": "",
       "AssetMergeSource": "",
-      "RelatedAsset": "D:\\Project MAUI\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "RelatedAsset": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
       "Fingerprint": "joqzyw7ssu",
       "Integrity": "LTxu1aeZz5yJTTAB+DiLnn5XOMdK1oiypNP/4JaeK9c=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\Project MAUI\\wwwroot\\css\\bootstrap\\bootstrap.min.css"
+      "OriginalItemSpec": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\wwwroot\\css\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Identity": "D:\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\scopedcss\\bundle\\Project MAUI.styles.css",
+      "Identity": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\scopedcss\\bundle\\Project MAUI.styles.css",
       "SourceId": "Project MAUI",
       "SourceType": "Computed",
-      "ContentRoot": "D:\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\scopedcss\\bundle\\",
+      "ContentRoot": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\scopedcss\\bundle\\",
       "BasePath": "/",
       "RelativePath": "Project MAUI#[.{fingerprint}]?.styles.css",
       "AssetKind": "All",
@@ -157,17 +157,17 @@
       "RelatedAsset": "",
       "AssetTraitName": "ScopedCss",
       "AssetTraitValue": "ApplicationBundle",
-      "Fingerprint": "b7my3yq95k",
-      "Integrity": "5y+sWcdqF5t70scFkYrq99AqeiVM6JpGkpiIy+nUQUQ=",
+      "Fingerprint": "zsgbrb8wx5",
+      "Integrity": "LU/Z4/zH/zjT844k9/cZmuN/7Gf52zx6CZApWovwKJs=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\scopedcss\\bundle\\Project MAUI.styles.css"
+      "OriginalItemSpec": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\scopedcss\\bundle\\Project MAUI.styles.css"
     },
     {
-      "Identity": "D:\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\scopedcss\\projectbundle\\Project MAUI.bundle.scp.css",
+      "Identity": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\scopedcss\\projectbundle\\Project MAUI.bundle.scp.css",
       "SourceId": "Project MAUI",
       "SourceType": "Computed",
-      "ContentRoot": "D:\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\scopedcss\\projectbundle\\",
+      "ContentRoot": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\scopedcss\\projectbundle\\",
       "BasePath": "/",
       "RelativePath": "Project MAUI#[.{fingerprint}]!.bundle.scp.css",
       "AssetKind": "All",
@@ -178,17 +178,17 @@
       "RelatedAsset": "",
       "AssetTraitName": "ScopedCss",
       "AssetTraitValue": "ProjectBundle",
-      "Fingerprint": "b7my3yq95k",
-      "Integrity": "5y+sWcdqF5t70scFkYrq99AqeiVM6JpGkpiIy+nUQUQ=",
+      "Fingerprint": "zsgbrb8wx5",
+      "Integrity": "LU/Z4/zH/zjT844k9/cZmuN/7Gf52zx6CZApWovwKJs=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\scopedcss\\projectbundle\\Project MAUI.bundle.scp.css"
+      "OriginalItemSpec": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\scopedcss\\projectbundle\\Project MAUI.bundle.scp.css"
     },
     {
-      "Identity": "D:\\Project MAUI\\wwwroot\\css\\app.css",
+      "Identity": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\wwwroot\\css\\app.css",
       "SourceId": "Project MAUI",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Project MAUI\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\wwwroot\\",
       "BasePath": "/",
       "RelativePath": "css/app#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -206,10 +206,10 @@
       "OriginalItemSpec": "wwwroot\\css\\app.css"
     },
     {
-      "Identity": "D:\\Project MAUI\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "Identity": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
       "SourceId": "Project MAUI",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Project MAUI\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\wwwroot\\",
       "BasePath": "/",
       "RelativePath": "css/bootstrap/bootstrap.min#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -227,10 +227,10 @@
       "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Identity": "D:\\Project MAUI\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "Identity": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
       "SourceId": "Project MAUI",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Project MAUI\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\wwwroot\\",
       "BasePath": "/",
       "RelativePath": "css/bootstrap/bootstrap.min.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -248,10 +248,10 @@
       "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Identity": "D:\\Project MAUI\\wwwroot\\index.html",
+      "Identity": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\wwwroot\\index.html",
       "SourceId": "Project MAUI",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Project MAUI\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\wwwroot\\",
       "BasePath": "/",
       "RelativePath": "index#[.{fingerprint}]?.html",
       "AssetKind": "All",
@@ -262,8 +262,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "9a9ec0esrr",
-      "Integrity": "gZK2wsfEpKIdEImel2zgBs6YEtKuvynSOI2pwbUpIEg=",
+      "Fingerprint": "qp6t3c59q6",
+      "Integrity": "PuoOaXPQ+gED/c74VIJFovbewgXGazO1vDp3vGxaKJs=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\index.html"
@@ -272,7 +272,7 @@
   "Endpoints": [
     {
       "Route": "css/app.css",
-      "AssetFile": "D:\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\hbusayt2hl-e5tk7yf482.gz",
+      "AssetFile": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\hbusayt2hl-e5tk7yf482.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
@@ -327,7 +327,7 @@
     },
     {
       "Route": "css/app.css",
-      "AssetFile": "D:\\Project MAUI\\wwwroot\\css\\app.css",
+      "AssetFile": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\wwwroot\\css\\app.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -364,7 +364,7 @@
     },
     {
       "Route": "css/app.css.gz",
-      "AssetFile": "D:\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\hbusayt2hl-e5tk7yf482.gz",
+      "AssetFile": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\hbusayt2hl-e5tk7yf482.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -409,7 +409,7 @@
     },
     {
       "Route": "css/app.e5tk7yf482.css",
-      "AssetFile": "D:\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\hbusayt2hl-e5tk7yf482.gz",
+      "AssetFile": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\hbusayt2hl-e5tk7yf482.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
@@ -472,7 +472,7 @@
     },
     {
       "Route": "css/app.e5tk7yf482.css",
-      "AssetFile": "D:\\Project MAUI\\wwwroot\\css\\app.css",
+      "AssetFile": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\wwwroot\\css\\app.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -517,7 +517,7 @@
     },
     {
       "Route": "css/app.e5tk7yf482.css.gz",
-      "AssetFile": "D:\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\hbusayt2hl-e5tk7yf482.gz",
+      "AssetFile": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\hbusayt2hl-e5tk7yf482.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -570,7 +570,7 @@
     },
     {
       "Route": "css/bootstrap/bootstrap.min.6gzpyzhau4.css",
-      "AssetFile": "D:\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\sjtrcecv73-6gzpyzhau4.gz",
+      "AssetFile": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\sjtrcecv73-6gzpyzhau4.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
@@ -633,7 +633,7 @@
     },
     {
       "Route": "css/bootstrap/bootstrap.min.6gzpyzhau4.css",
-      "AssetFile": "D:\\Project MAUI\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "AssetFile": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -678,7 +678,7 @@
     },
     {
       "Route": "css/bootstrap/bootstrap.min.6gzpyzhau4.css.gz",
-      "AssetFile": "D:\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\sjtrcecv73-6gzpyzhau4.gz",
+      "AssetFile": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\sjtrcecv73-6gzpyzhau4.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -731,7 +731,7 @@
     },
     {
       "Route": "css/bootstrap/bootstrap.min.css",
-      "AssetFile": "D:\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\sjtrcecv73-6gzpyzhau4.gz",
+      "AssetFile": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\sjtrcecv73-6gzpyzhau4.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
@@ -786,7 +786,7 @@
     },
     {
       "Route": "css/bootstrap/bootstrap.min.css",
-      "AssetFile": "D:\\Project MAUI\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "AssetFile": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -823,7 +823,7 @@
     },
     {
       "Route": "css/bootstrap/bootstrap.min.css.8inm30yfxf.map",
-      "AssetFile": "D:\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\5xg1fq34cy-8inm30yfxf.gz",
+      "AssetFile": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\5xg1fq34cy-8inm30yfxf.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
@@ -846,7 +846,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 17 Dec 2024 13:25:09 GMT"
+          "Value": "Tue, 17 Dec 2024 13:25:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -886,7 +886,7 @@
     },
     {
       "Route": "css/bootstrap/bootstrap.min.css.8inm30yfxf.map",
-      "AssetFile": "D:\\Project MAUI\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "AssetFile": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -907,7 +907,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 17 Dec 2024 13:25:09 GMT"
+          "Value": "Tue, 17 Dec 2024 13:25:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -931,7 +931,7 @@
     },
     {
       "Route": "css/bootstrap/bootstrap.min.css.8inm30yfxf.map.gz",
-      "AssetFile": "D:\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\5xg1fq34cy-8inm30yfxf.gz",
+      "AssetFile": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\5xg1fq34cy-8inm30yfxf.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -952,7 +952,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 17 Dec 2024 13:25:09 GMT"
+          "Value": "Tue, 17 Dec 2024 13:25:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -984,7 +984,7 @@
     },
     {
       "Route": "css/bootstrap/bootstrap.min.css.gz",
-      "AssetFile": "D:\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\sjtrcecv73-6gzpyzhau4.gz",
+      "AssetFile": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\sjtrcecv73-6gzpyzhau4.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1029,7 +1029,7 @@
     },
     {
       "Route": "css/bootstrap/bootstrap.min.css.map",
-      "AssetFile": "D:\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\5xg1fq34cy-8inm30yfxf.gz",
+      "AssetFile": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\5xg1fq34cy-8inm30yfxf.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
@@ -1052,7 +1052,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 17 Dec 2024 13:25:09 GMT"
+          "Value": "Tue, 17 Dec 2024 13:25:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1084,7 +1084,7 @@
     },
     {
       "Route": "css/bootstrap/bootstrap.min.css.map",
-      "AssetFile": "D:\\Project MAUI\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "AssetFile": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1105,7 +1105,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 17 Dec 2024 13:25:09 GMT"
+          "Value": "Tue, 17 Dec 2024 13:25:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1121,7 +1121,7 @@
     },
     {
       "Route": "css/bootstrap/bootstrap.min.css.map.gz",
-      "AssetFile": "D:\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\5xg1fq34cy-8inm30yfxf.gz",
+      "AssetFile": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\5xg1fq34cy-8inm30yfxf.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1142,7 +1142,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 17 Dec 2024 13:25:09 GMT"
+          "Value": "Tue, 17 Dec 2024 13:25:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1165,13 +1165,13 @@
       ]
     },
     {
-      "Route": "index.9a9ec0esrr.html",
-      "AssetFile": "D:\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\ou07rvqj3c-9a9ec0esrr.gz",
+      "Route": "index.html",
+      "AssetFile": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\ou07rvqj3c-qp6t3c59q6.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.002257336343"
+          "Quality": "0.002277904328"
         }
       ],
       "ResponseHeaders": [
@@ -1181,15 +1181,152 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "442"
+          "Value": "438"
         },
         {
           "Name": "ETag",
-          "Value": "\"qtGg+mqHDK2crsj4e5U8jQWi6Vp3el35LrG9foImqM8=\""
+          "Value": "\"hChioIndBB0lMidKhYF0ncXv4maXK1VDG8nixL5GB9I=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 17 Dec 2024 13:25:08 GMT"
+          "Value": "Sun, 29 Dec 2024 17:13:10 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"PuoOaXPQ+gED/c74VIJFovbewgXGazO1vDp3vGxaKJs=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-PuoOaXPQ+gED/c74VIJFovbewgXGazO1vDp3vGxaKJs="
+        }
+      ]
+    },
+    {
+      "Route": "index.html",
+      "AssetFile": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\wwwroot\\index.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "853"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"PuoOaXPQ+gED/c74VIJFovbewgXGazO1vDp3vGxaKJs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 29 Dec 2024 17:13:10 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-PuoOaXPQ+gED/c74VIJFovbewgXGazO1vDp3vGxaKJs="
+        }
+      ]
+    },
+    {
+      "Route": "index.html.gz",
+      "AssetFile": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\ou07rvqj3c-qp6t3c59q6.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "438"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"hChioIndBB0lMidKhYF0ncXv4maXK1VDG8nixL5GB9I=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 29 Dec 2024 17:13:10 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-hChioIndBB0lMidKhYF0ncXv4maXK1VDG8nixL5GB9I="
+        }
+      ]
+    },
+    {
+      "Route": "index.qp6t3c59q6.html",
+      "AssetFile": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\ou07rvqj3c-qp6t3c59q6.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.002277904328"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "438"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"hChioIndBB0lMidKhYF0ncXv4maXK1VDG8nixL5GB9I=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 29 Dec 2024 17:13:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1209,13 +1346,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"gZK2wsfEpKIdEImel2zgBs6YEtKuvynSOI2pwbUpIEg=\""
+          "Value": "W/\"PuoOaXPQ+gED/c74VIJFovbewgXGazO1vDp3vGxaKJs=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "9a9ec0esrr"
+          "Value": "qp6t3c59q6"
         },
         {
           "Name": "label",
@@ -1223,13 +1360,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-gZK2wsfEpKIdEImel2zgBs6YEtKuvynSOI2pwbUpIEg="
+          "Value": "sha256-PuoOaXPQ+gED/c74VIJFovbewgXGazO1vDp3vGxaKJs="
         }
       ]
     },
     {
-      "Route": "index.9a9ec0esrr.html",
-      "AssetFile": "D:\\Project MAUI\\wwwroot\\index.html",
+      "Route": "index.qp6t3c59q6.html",
+      "AssetFile": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\wwwroot\\index.html",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1238,7 +1375,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "857"
+          "Value": "853"
         },
         {
           "Name": "Content-Type",
@@ -1246,11 +1383,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"gZK2wsfEpKIdEImel2zgBs6YEtKuvynSOI2pwbUpIEg=\""
+          "Value": "\"PuoOaXPQ+gED/c74VIJFovbewgXGazO1vDp3vGxaKJs=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 17 Dec 2024 13:25:08 GMT"
+          "Value": "Sun, 29 Dec 2024 17:13:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1260,7 +1397,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "9a9ec0esrr"
+          "Value": "qp6t3c59q6"
         },
         {
           "Name": "label",
@@ -1268,13 +1405,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-gZK2wsfEpKIdEImel2zgBs6YEtKuvynSOI2pwbUpIEg="
+          "Value": "sha256-PuoOaXPQ+gED/c74VIJFovbewgXGazO1vDp3vGxaKJs="
         }
       ]
     },
     {
-      "Route": "index.9a9ec0esrr.html.gz",
-      "AssetFile": "D:\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\ou07rvqj3c-9a9ec0esrr.gz",
+      "Route": "index.qp6t3c59q6.html.gz",
+      "AssetFile": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\ou07rvqj3c-qp6t3c59q6.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1283,7 +1420,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "442"
+          "Value": "438"
         },
         {
           "Name": "Content-Type",
@@ -1291,11 +1428,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"qtGg+mqHDK2crsj4e5U8jQWi6Vp3el35LrG9foImqM8=\""
+          "Value": "\"hChioIndBB0lMidKhYF0ncXv4maXK1VDG8nixL5GB9I=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 17 Dec 2024 13:25:08 GMT"
+          "Value": "Sun, 29 Dec 2024 17:13:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1313,7 +1450,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "9a9ec0esrr"
+          "Value": "qp6t3c59q6"
         },
         {
           "Name": "label",
@@ -1321,18 +1458,18 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-qtGg+mqHDK2crsj4e5U8jQWi6Vp3el35LrG9foImqM8="
+          "Value": "sha256-hChioIndBB0lMidKhYF0ncXv4maXK1VDG8nixL5GB9I="
         }
       ]
     },
     {
-      "Route": "index.html",
-      "AssetFile": "D:\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\ou07rvqj3c-9a9ec0esrr.gz",
+      "Route": "Project MAUI.bundle.scp.css",
+      "AssetFile": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\b9nxz86vbo-zsgbrb8wx5.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.002257336343"
+          "Quality": "0.001053740780"
         }
       ],
       "ResponseHeaders": [
@@ -1342,15 +1479,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "442"
+          "Value": "948"
         },
         {
           "Name": "ETag",
-          "Value": "\"qtGg+mqHDK2crsj4e5U8jQWi6Vp3el35LrG9foImqM8=\""
+          "Value": "\"/2Oez5kAkK+Qpw2M8opO3yLi8TownRWYBKVpgAFs0S8=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 17 Dec 2024 13:25:08 GMT"
+          "Value": "Wed, 15 Jan 2025 14:35:29 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1366,23 +1503,23 @@
         },
         {
           "Name": "Content-Type",
-          "Value": "text/html"
+          "Value": "text/css"
         },
         {
           "Name": "ETag",
-          "Value": "W/\"gZK2wsfEpKIdEImel2zgBs6YEtKuvynSOI2pwbUpIEg=\""
+          "Value": "W/\"LU/Z4/zH/zjT844k9/cZmuN/7Gf52zx6CZApWovwKJs=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-gZK2wsfEpKIdEImel2zgBs6YEtKuvynSOI2pwbUpIEg="
+          "Value": "sha256-LU/Z4/zH/zjT844k9/cZmuN/7Gf52zx6CZApWovwKJs="
         }
       ]
     },
     {
-      "Route": "index.html",
-      "AssetFile": "D:\\Project MAUI\\wwwroot\\index.html",
+      "Route": "Project MAUI.bundle.scp.css",
+      "AssetFile": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\scopedcss\\projectbundle\\Project MAUI.bundle.scp.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1391,19 +1528,19 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "857"
+          "Value": "3008"
         },
         {
           "Name": "Content-Type",
-          "Value": "text/html"
+          "Value": "text/css"
         },
         {
           "Name": "ETag",
-          "Value": "\"gZK2wsfEpKIdEImel2zgBs6YEtKuvynSOI2pwbUpIEg=\""
+          "Value": "\"LU/Z4/zH/zjT844k9/cZmuN/7Gf52zx6CZApWovwKJs=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 17 Dec 2024 13:25:08 GMT"
+          "Value": "Wed, 15 Jan 2025 14:35:29 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1413,13 +1550,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-gZK2wsfEpKIdEImel2zgBs6YEtKuvynSOI2pwbUpIEg="
+          "Value": "sha256-LU/Z4/zH/zjT844k9/cZmuN/7Gf52zx6CZApWovwKJs="
         }
       ]
     },
     {
-      "Route": "index.html.gz",
-      "AssetFile": "D:\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\ou07rvqj3c-9a9ec0esrr.gz",
+      "Route": "Project MAUI.bundle.scp.css.gz",
+      "AssetFile": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\b9nxz86vbo-zsgbrb8wx5.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1428,19 +1565,19 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "442"
+          "Value": "948"
         },
         {
           "Name": "Content-Type",
-          "Value": "text/html"
+          "Value": "text/css"
         },
         {
           "Name": "ETag",
-          "Value": "\"qtGg+mqHDK2crsj4e5U8jQWi6Vp3el35LrG9foImqM8=\""
+          "Value": "\"/2Oez5kAkK+Qpw2M8opO3yLi8TownRWYBKVpgAFs0S8=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 17 Dec 2024 13:25:08 GMT"
+          "Value": "Wed, 15 Jan 2025 14:35:29 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1458,18 +1595,18 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-qtGg+mqHDK2crsj4e5U8jQWi6Vp3el35LrG9foImqM8="
+          "Value": "sha256-/2Oez5kAkK+Qpw2M8opO3yLi8TownRWYBKVpgAFs0S8="
         }
       ]
     },
     {
-      "Route": "Project MAUI.b7my3yq95k.bundle.scp.css",
-      "AssetFile": "D:\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\b9nxz86vbo-b7my3yq95k.gz",
+      "Route": "Project MAUI.styles.css",
+      "AssetFile": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\mafyosdqbr-zsgbrb8wx5.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000614628150"
+          "Quality": "0.001053740780"
         }
       ],
       "ResponseHeaders": [
@@ -1479,15 +1616,152 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1626"
+          "Value": "948"
         },
         {
           "Name": "ETag",
-          "Value": "\"XIJ/L6DeCm0msATLwDJp0ix0zLZ7+vlT21M0ypKZNb4=\""
+          "Value": "\"/2Oez5kAkK+Qpw2M8opO3yLi8TownRWYBKVpgAFs0S8=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 17 Dec 2024 13:25:36 GMT"
+          "Value": "Wed, 15 Jan 2025 14:35:29 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"LU/Z4/zH/zjT844k9/cZmuN/7Gf52zx6CZApWovwKJs=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-LU/Z4/zH/zjT844k9/cZmuN/7Gf52zx6CZApWovwKJs="
+        }
+      ]
+    },
+    {
+      "Route": "Project MAUI.styles.css",
+      "AssetFile": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\scopedcss\\bundle\\Project MAUI.styles.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3008"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"LU/Z4/zH/zjT844k9/cZmuN/7Gf52zx6CZApWovwKJs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 15 Jan 2025 14:35:29 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-LU/Z4/zH/zjT844k9/cZmuN/7Gf52zx6CZApWovwKJs="
+        }
+      ]
+    },
+    {
+      "Route": "Project MAUI.styles.css.gz",
+      "AssetFile": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\mafyosdqbr-zsgbrb8wx5.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "948"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"/2Oez5kAkK+Qpw2M8opO3yLi8TownRWYBKVpgAFs0S8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 15 Jan 2025 14:35:29 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-/2Oez5kAkK+Qpw2M8opO3yLi8TownRWYBKVpgAFs0S8="
+        }
+      ]
+    },
+    {
+      "Route": "Project MAUI.zsgbrb8wx5.bundle.scp.css",
+      "AssetFile": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\b9nxz86vbo-zsgbrb8wx5.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001053740780"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "948"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"/2Oez5kAkK+Qpw2M8opO3yLi8TownRWYBKVpgAFs0S8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 15 Jan 2025 14:35:29 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1507,13 +1781,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"5y+sWcdqF5t70scFkYrq99AqeiVM6JpGkpiIy+nUQUQ=\""
+          "Value": "W/\"LU/Z4/zH/zjT844k9/cZmuN/7Gf52zx6CZApWovwKJs=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "b7my3yq95k"
+          "Value": "zsgbrb8wx5"
         },
         {
           "Name": "label",
@@ -1521,13 +1795,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-5y+sWcdqF5t70scFkYrq99AqeiVM6JpGkpiIy+nUQUQ="
+          "Value": "sha256-LU/Z4/zH/zjT844k9/cZmuN/7Gf52zx6CZApWovwKJs="
         }
       ]
     },
     {
-      "Route": "Project MAUI.b7my3yq95k.bundle.scp.css",
-      "AssetFile": "D:\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\scopedcss\\projectbundle\\Project MAUI.bundle.scp.css",
+      "Route": "Project MAUI.zsgbrb8wx5.bundle.scp.css",
+      "AssetFile": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\scopedcss\\projectbundle\\Project MAUI.bundle.scp.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1536,7 +1810,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "5481"
+          "Value": "3008"
         },
         {
           "Name": "Content-Type",
@@ -1544,11 +1818,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"5y+sWcdqF5t70scFkYrq99AqeiVM6JpGkpiIy+nUQUQ=\""
+          "Value": "\"LU/Z4/zH/zjT844k9/cZmuN/7Gf52zx6CZApWovwKJs=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 17 Dec 2024 13:25:36 GMT"
+          "Value": "Wed, 15 Jan 2025 14:35:29 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1558,7 +1832,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "b7my3yq95k"
+          "Value": "zsgbrb8wx5"
         },
         {
           "Name": "label",
@@ -1566,13 +1840,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-5y+sWcdqF5t70scFkYrq99AqeiVM6JpGkpiIy+nUQUQ="
+          "Value": "sha256-LU/Z4/zH/zjT844k9/cZmuN/7Gf52zx6CZApWovwKJs="
         }
       ]
     },
     {
-      "Route": "Project MAUI.b7my3yq95k.bundle.scp.css.gz",
-      "AssetFile": "D:\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\b9nxz86vbo-b7my3yq95k.gz",
+      "Route": "Project MAUI.zsgbrb8wx5.bundle.scp.css.gz",
+      "AssetFile": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\b9nxz86vbo-zsgbrb8wx5.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1581,7 +1855,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1626"
+          "Value": "948"
         },
         {
           "Name": "Content-Type",
@@ -1589,11 +1863,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"XIJ/L6DeCm0msATLwDJp0ix0zLZ7+vlT21M0ypKZNb4=\""
+          "Value": "\"/2Oez5kAkK+Qpw2M8opO3yLi8TownRWYBKVpgAFs0S8=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 17 Dec 2024 13:25:36 GMT"
+          "Value": "Wed, 15 Jan 2025 14:35:29 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1611,7 +1885,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "b7my3yq95k"
+          "Value": "zsgbrb8wx5"
         },
         {
           "Name": "label",
@@ -1619,18 +1893,18 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-XIJ/L6DeCm0msATLwDJp0ix0zLZ7+vlT21M0ypKZNb4="
+          "Value": "sha256-/2Oez5kAkK+Qpw2M8opO3yLi8TownRWYBKVpgAFs0S8="
         }
       ]
     },
     {
-      "Route": "Project MAUI.b7my3yq95k.styles.css",
-      "AssetFile": "D:\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\mafyosdqbr-b7my3yq95k.gz",
+      "Route": "Project MAUI.zsgbrb8wx5.styles.css",
+      "AssetFile": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\mafyosdqbr-zsgbrb8wx5.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000614628150"
+          "Quality": "0.001053740780"
         }
       ],
       "ResponseHeaders": [
@@ -1640,15 +1914,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1626"
+          "Value": "948"
         },
         {
           "Name": "ETag",
-          "Value": "\"XIJ/L6DeCm0msATLwDJp0ix0zLZ7+vlT21M0ypKZNb4=\""
+          "Value": "\"/2Oez5kAkK+Qpw2M8opO3yLi8TownRWYBKVpgAFs0S8=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 17 Dec 2024 13:25:36 GMT"
+          "Value": "Wed, 15 Jan 2025 14:35:29 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1668,13 +1942,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"5y+sWcdqF5t70scFkYrq99AqeiVM6JpGkpiIy+nUQUQ=\""
+          "Value": "W/\"LU/Z4/zH/zjT844k9/cZmuN/7Gf52zx6CZApWovwKJs=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "b7my3yq95k"
+          "Value": "zsgbrb8wx5"
         },
         {
           "Name": "label",
@@ -1682,13 +1956,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-5y+sWcdqF5t70scFkYrq99AqeiVM6JpGkpiIy+nUQUQ="
+          "Value": "sha256-LU/Z4/zH/zjT844k9/cZmuN/7Gf52zx6CZApWovwKJs="
         }
       ]
     },
     {
-      "Route": "Project MAUI.b7my3yq95k.styles.css",
-      "AssetFile": "D:\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\scopedcss\\bundle\\Project MAUI.styles.css",
+      "Route": "Project MAUI.zsgbrb8wx5.styles.css",
+      "AssetFile": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\scopedcss\\bundle\\Project MAUI.styles.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1697,7 +1971,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "5481"
+          "Value": "3008"
         },
         {
           "Name": "Content-Type",
@@ -1705,11 +1979,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"5y+sWcdqF5t70scFkYrq99AqeiVM6JpGkpiIy+nUQUQ=\""
+          "Value": "\"LU/Z4/zH/zjT844k9/cZmuN/7Gf52zx6CZApWovwKJs=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 17 Dec 2024 13:25:36 GMT"
+          "Value": "Wed, 15 Jan 2025 14:35:29 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1719,7 +1993,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "b7my3yq95k"
+          "Value": "zsgbrb8wx5"
         },
         {
           "Name": "label",
@@ -1727,13 +2001,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-5y+sWcdqF5t70scFkYrq99AqeiVM6JpGkpiIy+nUQUQ="
+          "Value": "sha256-LU/Z4/zH/zjT844k9/cZmuN/7Gf52zx6CZApWovwKJs="
         }
       ]
     },
     {
-      "Route": "Project MAUI.b7my3yq95k.styles.css.gz",
-      "AssetFile": "D:\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\mafyosdqbr-b7my3yq95k.gz",
+      "Route": "Project MAUI.zsgbrb8wx5.styles.css.gz",
+      "AssetFile": "C:\\Users\\bpnap\\Desktop\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\mafyosdqbr-zsgbrb8wx5.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1742,7 +2016,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1626"
+          "Value": "948"
         },
         {
           "Name": "Content-Type",
@@ -1750,11 +2024,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"XIJ/L6DeCm0msATLwDJp0ix0zLZ7+vlT21M0ypKZNb4=\""
+          "Value": "\"/2Oez5kAkK+Qpw2M8opO3yLi8TownRWYBKVpgAFs0S8=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 17 Dec 2024 13:25:36 GMT"
+          "Value": "Wed, 15 Jan 2025 14:35:29 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1772,7 +2046,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "b7my3yq95k"
+          "Value": "zsgbrb8wx5"
         },
         {
           "Name": "label",
@@ -1780,281 +2054,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-XIJ/L6DeCm0msATLwDJp0ix0zLZ7+vlT21M0ypKZNb4="
-        }
-      ]
-    },
-    {
-      "Route": "Project MAUI.bundle.scp.css",
-      "AssetFile": "D:\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\b9nxz86vbo-b7my3yq95k.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.000614628150"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1626"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"XIJ/L6DeCm0msATLwDJp0ix0zLZ7+vlT21M0ypKZNb4=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 17 Dec 2024 13:25:36 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"5y+sWcdqF5t70scFkYrq99AqeiVM6JpGkpiIy+nUQUQ=\""
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-5y+sWcdqF5t70scFkYrq99AqeiVM6JpGkpiIy+nUQUQ="
-        }
-      ]
-    },
-    {
-      "Route": "Project MAUI.bundle.scp.css",
-      "AssetFile": "D:\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\scopedcss\\projectbundle\\Project MAUI.bundle.scp.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "5481"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"5y+sWcdqF5t70scFkYrq99AqeiVM6JpGkpiIy+nUQUQ=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 17 Dec 2024 13:25:36 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-5y+sWcdqF5t70scFkYrq99AqeiVM6JpGkpiIy+nUQUQ="
-        }
-      ]
-    },
-    {
-      "Route": "Project MAUI.bundle.scp.css.gz",
-      "AssetFile": "D:\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\b9nxz86vbo-b7my3yq95k.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1626"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"XIJ/L6DeCm0msATLwDJp0ix0zLZ7+vlT21M0ypKZNb4=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 17 Dec 2024 13:25:36 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-XIJ/L6DeCm0msATLwDJp0ix0zLZ7+vlT21M0ypKZNb4="
-        }
-      ]
-    },
-    {
-      "Route": "Project MAUI.styles.css",
-      "AssetFile": "D:\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\mafyosdqbr-b7my3yq95k.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.000614628150"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1626"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"XIJ/L6DeCm0msATLwDJp0ix0zLZ7+vlT21M0ypKZNb4=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 17 Dec 2024 13:25:36 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"5y+sWcdqF5t70scFkYrq99AqeiVM6JpGkpiIy+nUQUQ=\""
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-5y+sWcdqF5t70scFkYrq99AqeiVM6JpGkpiIy+nUQUQ="
-        }
-      ]
-    },
-    {
-      "Route": "Project MAUI.styles.css",
-      "AssetFile": "D:\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\scopedcss\\bundle\\Project MAUI.styles.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "5481"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"5y+sWcdqF5t70scFkYrq99AqeiVM6JpGkpiIy+nUQUQ=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 17 Dec 2024 13:25:36 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-5y+sWcdqF5t70scFkYrq99AqeiVM6JpGkpiIy+nUQUQ="
-        }
-      ]
-    },
-    {
-      "Route": "Project MAUI.styles.css.gz",
-      "AssetFile": "D:\\Project MAUI\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\mafyosdqbr-b7my3yq95k.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1626"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"XIJ/L6DeCm0msATLwDJp0ix0zLZ7+vlT21M0ypKZNb4=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 17 Dec 2024 13:25:36 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-XIJ/L6DeCm0msATLwDJp0ix0zLZ7+vlT21M0ypKZNb4="
+          "Value": "sha256-/2Oez5kAkK+Qpw2M8opO3yLi8TownRWYBKVpgAFs0S8="
         }
       ]
     }
